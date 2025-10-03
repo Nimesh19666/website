@@ -11,7 +11,7 @@ export default function HeroSection() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover -z-10"
       >
-        <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        <source src="/videos/Hero_bg.mp4" type="video/mp4" />
       </video>
 
       <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
