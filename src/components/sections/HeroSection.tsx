@@ -9,10 +9,11 @@ export default function HeroSection() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover -z-10"
+        className="absolute inset-0 w-full h-full object-cover -z-10 filter brightness-[0.69] grayscale invert scale-120 -translate-y-22"
       >
         <source src="/videos/hero-bg.mp4" type="video/mp4" />
       </video>
+      <div className="absolute inset-0 bg-[radial-gradient(50%_50%_at_50%_50%,#fff0_0%,var(--token-d4c0a0e6-8fba-45bc-8f6f-215e608cd0df,#fff)_100%)]"></div>
 
       <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
         <div className="inline-block mb-6 sm:mb-8">
