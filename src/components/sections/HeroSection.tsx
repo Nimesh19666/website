@@ -21,7 +21,7 @@ export default function HeroSection() {
 
         <div className="flex items-center justify-center gap-3 sm:gap-6 mb-6 sm:mb-8">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-black drop-shadow-lg px-4">
-            Your <span className="text-[#0f40c4]">Vision</span> is Our Blueprint
+            Your <span className="text-[#1b17ff]">Vision</span> is Our Blueprint
           </h1>
         </div>
 
