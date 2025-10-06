@@ -2,7 +2,7 @@
 
 import { whyChooseUsData } from "@/lib/constants";
 import { LineChart, TrendingUp, RefreshCw, LucideIcon } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Badge from "../../ui/Badge";
 
 const iconMap: Record<string, LucideIcon> = {
@@ -48,7 +48,7 @@ export default function WhyChooseUs() {
     },
   };
 
-  const marqueeVariants = {
+  const marqueeVariants: Variants = {
     animate: {
       x: [0, "-50%"],
       transition: {
