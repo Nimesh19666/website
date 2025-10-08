@@ -113,7 +113,7 @@ export default function FeaturesSection() {
                       <div className="w-16 h-16 bg-[linear-gradient(180deg,rgb(0,0,0)_0%,rgb(255,255,255)_170%)] rounded-xl flex items-center justify-center mb-4">
                         <Icon className="w-6 h-6 text-white" />
                       </div>
-                      <h3 className="text-xl font-[satoshi] font-light text-black mb-3">
+                      <h3 className="text-xl font-[satoshi] font-medium text-black mb-3">
                         {card.title}
                       </h3>
                       <p className="text-gray-600 text-sm">

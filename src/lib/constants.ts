@@ -1,60 +1,60 @@
 export const whyChooseUsData = {
-  badge: "BENEFITS",
+  badge: "About US",
   title: "Why Choose Us",
-  description: "Partner with an AI agency delivering smart solutions.",
+  description: "More than an agency, we're your growth engine.",
   benefits: [
     {
       iconName: "LineChart" as const,
-      title: "Real-Time Analytics",
-      description: "Stay ahead with accurate, real-time performance tracking"
+      title: "Your End-to-End Technology Partner",
+      description: "Your single, unified partner for all digital needs."
     },
     {
       iconName: "TrendingUp" as const,
-      title: "AI-Driven Growth",
-      description: "Make smarter moves with accurate, real-time business insights."
+      title: "Intelligent Automation at the Core",
+      description: "We build smart AI systems that power growth."
     },
     {
       iconName: "RefreshCw" as const,
-      title: "Sync in real time",
-      description: "connect with your team instantly to track progress and updates"
+      title: "Focused Purely on Your Growth",
+      description: "Your business growth is our most important metric."
     }
   ],
   features: [
-    "Virtual Assistance",
-    "Scalable Solutions",
-    "Personalized Experiences",
-    "Cost Effective",
-    "Real-Time Insights"
+    "Seamless Automation",
+    "Data-Driven Marketing",
+    "AI-Powered Engagement",
+    "Growth-Driven Strategy",
+    "Cloud & DevOps Solutions"
   ]
 };
 export const featuresSectionData = {
-  badge: "FEATURES",
-  title: "All features in 1 tool",
-  description: "Discover features that simplify workflows & grow your business.",
+  badge: "Pillars",
+  title: "The Blueprint for Your Digital Evolution",
+  description: "Our strategic framework is designed to guide your business through every critical stage of growth, ensuring a powerful and sustainable journey from foundation to market leadership.",
   cards: [
     {
-      title: "Cutting-Edge AI",
+      title: "Build Your Foundation",
       description:
-        "Deploy AI solutions that adapt quickly, learn fast, and scale with your business needs.",
+        "We establish your complete digital presence, from a stunning website and memorable brand identity to your core infrastructure.",
       iconName: "Cpu",
       imageUrl: "/images/ai.avif", 
     },
     {
-      title: "Automated Workflows",
+      title: "Grow Your Audience",
       description:
-        "Streamline tasks and boost efficiency with powerful, scalable AI-powered automation tools for growing teams and projects.",
+        "We attract and convert your ideal customers through data-driven marketing campaigns using SEO, paid ads, and social media.",
       iconName: "Workflow",
     },
     {
-      title: "Insightful Analytics",
+      title: "Automate Your Operations",
       description:
-        "Gain deep, real-time data insights with advanced AI analytics to guide smarter strategies, decisions, and scalable business growth.",
+        "We boost efficiency and engagement with AI chatbots, CRM integration, and automated workflows that streamline your business.",
       iconName: "BarChartBig",
     },
     {
-      title: "AI-Powered Support",
+      title: "Stand Out Creatively",
       description:
-        "Enhance customer experience with AI-driven virtual assistants available for support and engagement.",
+        "We captivate your market and define your brand identity with AI-powered video, motion graphics, and advanced creative work.",
       iconName: "MessageSquareHeart",
       imageUrl: "/images/ai.avif", 
     },
@@ -63,62 +63,83 @@ export const featuresSectionData = {
 
 export const servicesSectionData = {
   badge: "SERVICES",
-  title: "Our AI-Driven Services",
-  description: "Leverage AI features that boost performance to your business.",
+  title: "Technology to Fuel Your Growth",
+  description: "Explore our core services, each designed to deliver performance, scalability, and a distinct competitive edge for your business.",
   services: [
     {
-      title: "AI Strategy Consulting",
+      title: "Web Development",
       description:
-        "Get expert guidance to implement AI solutions that drive business growth.",
+        "We build fast, responsive, and secure websites that deliver exceptional user experiences..",
       iconName: "BarChartBig",
     },
     {
-      title: "Content Generation",
+      title: "App Development",
       description:
-        "We provide seamless content creation solutions that generate captivating, high-quality content in line with your brand's voice.",
+        "We design and develop intuitive, high-performance mobile apps for both iOS and Android.",
       iconName: "PenSquare",
     },
     {
-      title: "AI-Powered Chatbots",
+      title: "AI & Automation Solutions",
       description:
-        "We develop AI-driven chatbots with advanced cognitive technologies to elevate customer support and automate business operations.",
+        "We deploy smart AI agents and automation to streamline your operations and boost sales.",
       iconName: "MessageSquareHeart",
     },
     {
-      title: "Automated Workflows",
+      title: "Custom Software Development",
       description:
-        "Automate workflows to streamline tasks, boost efficiency, and save time.",
+        "We engineer bespoke software solutions tailored precisely to solve your business challenges.",
       iconName: "Workflow",
+    },
+        {
+      title: "Cloud & DevOps Services",
+      description:
+        "We manage your cloud infrastructure, ensuring scalability, reliability, and peak performance.",
+      iconName: "BarChartBig",
+    },
+    {
+      title: "Data & Analytics",
+      description:
+        "We turn raw data into actionable insights with intuitive custom dashboards and reporting solutions.",
+      iconName: "PenSquare",
     },
   ],
 };
 
 export const processSectionData = {
   badge: "PROCESS",
-  title: "Simple & Scalable",
-  description: "A transparent process of collaboration and feedback",
+  title: 
+  "From Idea to Impact",
+  description: "Our process blends strategy, design, and technology to turn great ideas into market-ready realities, with precision at every step.",
   steps: [
     {
       number: "01",
-      title: "Workflow Assessment",
+      title: "Blueprint",
       description:
-        "We begin by examining your existing workflows to identify where AI can deliver the greatest impact.",
+        "We begin by mapping your vision, defining clear project goals, and creating a detailed strategic plan.",
       imageUrl: "/images/process1.avif",
       iconName: "Search" as const, 
     },
     {
       number: "02",
-      title: "Deploy with Confidence",
+      title: "Craft",
       description:
-        "Our team develops custom AI systems built around your goals, ensuring safe and reliable deployment.",
+        "Our team designs an intuitive user experience and a stunning visual interface that brings the project to life.",
       imageUrl: "/images/process2.avif",
       iconName: "Rocket" as const, 
     },
     {
       number: "03",
-      title: "Ongoing Support & Optimization",
+      title: "Construct",
       description:
-        "After deployment, we provide support and refine your AI systems to keep them performing at their best.",
+        "We write clean, scalable code to build your solution and seamlessly integrate all necessary technologies.",
+      imageUrl: "/images/process3.avif",
+      iconName: "Settings" as const, 
+    },
+        {
+      number: "04",
+      title: "Launch & Accelerate",
+      description:
+        "We deploy the final product, run rigorous tests, and work with you to ensure a successful post-launch journey.",
       imageUrl: "/images/process3.avif",
       iconName: "Settings" as const, 
     },
@@ -172,30 +193,31 @@ export const testimonialsSectionData = {
 };
 export const comparisonSectionData = {
   badge: "COMPARISON",
-  title: "Precision vs Basic",
-  description: "See how our AI outperforms competitors with speed.",
+  title: "Growth Partner vs Vendor",
+  description: "See why our integrated approach delivers better results than juggling multiple vendors.",
   leftColumn: {
-    heading: "ORB AI",
+    heading: "Nuopod Tech",
     features: [
-      "Automated workflows",
-      "Personalized AI-driven strategies",
-      "Data-backed, real-time insights",
-      "Scalable AI systems",
-      "Trained chatbots",
-      "Rapid, AI-generated content",
-      "Real time data analysis",
+      "End-to-End Growth Partner",
+      "Unified Strategy (Dev + Marketing + AI)",
+      "AI-Powered & Automated Workflows",
+      "Focus on Your Business ROI",
+      "Scalable, Future-Proof Systems",
+      "Data-Backed, Real-Time Insights",
+      "Single, Dedicated Point of Contact",
     ],
     ctaText: "Get Started",
   },
   rightColumn: {
     heading: "Others",
     features: [
-      "Manual workflows",
-      "Generic, one-size-fits-all solutions",
-      "decision-making based on guesswork",
-      "Lacks scalability",
-      "Standard chatbots",
-      "Time-consuming content creation",
+      "Task-Based Vendor",
+      "Isolated Services (Dev or Marketing)",
+      "Manual, Repetitive Workflows",
+      "Focus on Project Completion",
+      "Static, Outdated Solutions",
+      "Decision-Making Based on Guesswork",
+      "Multiple, Disconnected Freelancers",
     ],
   },
 };
@@ -295,4 +317,55 @@ export const faqSectionData = {
     text: "Feel free to mail us for any enquiries :",
     email: "noupod@gmail.com",
   },
+};
+
+export const pricingSectionData = {
+  badge: "PRICING",
+  title: "Simple Price For All",
+  description: "Flexible pricing plans that fit your budget & scale with needs.",
+  plans: [
+    {
+      name: "Starter",
+      isPopular: false,
+      price: 800,
+      description: "Ideal for businesses ready to explore AI and intelligent automation",
+      features: [
+        "Basic AI Tools",
+        "Limited Automation Features",
+        "Real-Time Reporting",
+        "Basic Chatbot Integration",
+      ],
+      ctaText: "Get Started",
+    },
+    {
+      name: "Pro",
+      isPopular: true,
+      price: 1700,
+      description: "Built for companies that want to gain an edge with AI-powered automation",
+      features: [
+        "Advanced AI Tools",
+        "Customizable Workflows",
+        "AI-Powered Analytics",
+        "Premium Chatbot Features",
+        "Cross-Platform Integrations",
+      ],
+      ctaText: "Get Started",
+    },
+    {
+      name: "Enterprise",
+      isPopular: false,
+      price: 4700,
+      description: "For businesses aiming to harness AI and automation to lead their industry",
+      features: [
+        "Fully Customized AI Solutions",
+        "Unlimited Integrations",
+        "Advanced Reporting & Insights",
+        "Scalable AI Solutions",
+        "Team Collaboration Features",
+        "Priority Feature Access",
+      ],
+      ctaText: "Get Started",
+    },
+  ],
+  footerText: "We donate 2% of your membership to pediatric wellbeing",
 };

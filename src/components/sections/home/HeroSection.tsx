@@ -73,12 +73,11 @@ export default function HeroSection() {
           variants={contentVariants}
           className="flex items-center justify-center gap-3 sm:gap-6 mb-6 sm:mb-8"
         >
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-[linear-gradient(0deg,rgb(0,0,0)_0%,rgb(255,255,255)_170%)] bg-clip-text text-transparent drop-shadow-lg px-4 font-[satoshi]">
-            Your{" "}
+          <h1 className="text-3xl leading-tight sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-[linear-gradient(0deg,rgb(0,0,0)_0%,rgb(255,255,255)_170%)] bg-clip-text text-transparent drop-shadow-lg px-4 font-[satoshi]">
+            Intelligent Technology for <br></br>
             <span className=" bg-[linear-gradient(0deg,rgb(8,102,255)_0%,rgb(255,255,255)_170%)] bg-clip-text text-transparent">
-              Vision
+              Ambitious Brands
             </span>{" "}
-            is Our Blueprint
           </h1>
         </motion.div>
 
@@ -86,9 +85,9 @@ export default function HeroSection() {
           variants={contentVariants}
           className="text-sm sm:text-sm md:text-sm lg:text-base text-black mb-8 sm:mb-12 max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto font-light drop-shadow-md px-4"
         >
-          In a world of complexity, we provide clarity. We architect robust
-          technology that transforms your concepts into reality, ensuring your
-          business is built for the future.
+          We deliver custom websites, AI-powered automation, and data-driven
+          marketing strategies to help you build, grow, and stand out from the
+          competition.
         </motion.p>
 
         <motion.div

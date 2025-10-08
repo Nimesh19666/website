@@ -22,7 +22,7 @@ export default function Button({
     secondary:
       "bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 shadow-lg hover:shadow-xl",
     black:
-      "bg-black text-white hover:bg-gray-800 shadow-[0_8px_12px_-2px_rgba(0,0,0,0.9)] hover:shadow-[0_12px_16px_-2px_rgba(0,0,0,0.6)]",
+      "bg-black text-white hover:bg-gray-800 shadow-[0_8px_10px_-1px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_16px_-2px_rgba(0,0,0,0.6)]",
   };
 
   return (
