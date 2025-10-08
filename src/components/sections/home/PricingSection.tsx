@@ -27,7 +27,7 @@ export default function PricingSection() {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
   };
@@ -53,10 +53,10 @@ export default function PricingSection() {
 
           {/* Monthly/Yearly Toggle */}
           <div className="flex justify-center items-center mb-12">
-            <div className="bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] rounded-full px-5  flex items-center gap-3">
+            <div className="bg-white rounded-full p-1 flex items-center gap-3 shadow-sm">
               <button
                 onClick={() => setIsYearly(false)}
-                className={`px-1 py-4 text-base font-normal transition-all duration-200 relative ${
+                className={`px-6 py-2 text-base font-normal transition-all duration-200 relative ${
                   !isYearly ? "text-gray-900" : "text-gray-400"
                 }`}
               >
@@ -73,7 +73,7 @@ export default function PricingSection() {
               >
                 Yearly
               </button>
-              <div className=" text-gray-600 text-sm font-normal px-4 py-2 rounded-full bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] border border-gray-200">
+              <div className="bg-white text-gray-600 text-sm font-normal px-4 py-2 rounded-full border border-gray-200">
                 30% off
               </div>
             </div>
