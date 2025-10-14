@@ -1,10 +1,12 @@
 "use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const MotionLink = motion(Link);
 
@@ -12,6 +14,13 @@ export default function Header() {
   const [hoveredLink, setHoveredLink] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const pathname = usePathname();
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setIsMenuOpen(false); // Close mobile menu on navigation
+  }, [pathname]);
 
   useEffect(() => {
     const darkSections = document.querySelectorAll(
@@ -65,19 +74,19 @@ export default function Header() {
     };
   }, []);
 
-  const headerContainerVariants = {
+  const headerContainerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
   };
 
-  const desktopItemVariants = {
+  const desktopItemVariants: Variants = {
     hidden: { opacity: 0, y: -20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: { delay: 0.2, duration: 0.9 },
     },
-  } as const;
+  };
 
   return (
     <>
