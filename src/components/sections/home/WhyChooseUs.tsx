@@ -63,7 +63,7 @@ export default function WhyChooseUs() {
   } as const;
 
   return (
-    <section className="bg-[#f8f8f8] py-16 sm:py-24 overflow-hidden">
+    <section className="bg-black py-16 sm:py-24 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -81,10 +81,10 @@ export default function WhyChooseUs() {
                     {badge}
                   </Badge>
                 </div>
-                <h2 className="font-heading text-3xl font-[satoshi] font-medium sm:text-4xl md:text-5xl mb-4 bg-[linear-gradient(0deg,rgb(0,0,0)_0%,rgb(255,255,255)_170%)] bg-clip-text text-transparent">
+                <h2 className="font-heading text-3xl font-[satoshi] font-medium sm:text-4xl md:text-5xl mb-4 bg-[linear-gradient(0deg,rgb(255,255,255)_0%,rgb(0,0,0)_190%)] bg-clip-text text-transparent">
                   {title}
                 </h2>
-                <p className="text-gray-600 text-sm sm:text-lg max-w-2xl mx-auto">
+                <p className="text-white text-sm sm:text-lg max-w-2xl mx-auto">
                   {description}
                 </p>
               </div>
@@ -156,8 +156,8 @@ export default function WhyChooseUs() {
               ))}
             </motion.div>
 
-            <div className="absolute top-0 left-0 bottom-0 w-24 bg-gradient-to-r from-[#f8f8f8] to-transparent"></div>
-            <div className="absolute top-0 right-0 bottom-0 w-24 bg-gradient-to-l from-[#f8f8f8] to-transparent"></div>
+            <div className="absolute top-0 left-0 bottom-0 w-24 bg-gradient-to-r from-black to-transparent"></div>
+            <div className="absolute top-0 right-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent"></div>
           </div>
         </div>
       </div>

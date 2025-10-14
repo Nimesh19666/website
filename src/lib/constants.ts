@@ -369,3 +369,158 @@ export const pricingSectionData = {
   ],
   footerText: "We donate 2% of your membership to pediatric wellbeing",
 };
+
+export const aboutDescriptionData = {
+  badge: "About Us",
+  text: "With over 15 years of experience, we specialize in delivering tailored solutions that drive success across industries like finance, technology, and operations. Our dedicated team is focused on accelerating growth and helping your business thrive in an ever-changing market.",
+};
+
+export const aboutTeamData = {
+  badge: "TEAM",
+  title: "OUR TEAM",
+  members: [
+    {
+      name: "Carter Botosh",
+      role: "Chief Financial Officer",
+      imageUrl: "/images/about-img1.png", // Using the old hero image
+    },
+    {
+      name: "Liya Saris",
+      role: "Head of Technology",
+      imageUrl: "/images/about-img2.png", // Using the old hero image
+    },
+    {
+      name: "Zaire Workman",
+      role: "Marketing Director",
+      imageUrl: "/images/about-img3.png", // Using the old hero image
+    },
+    {
+      name: "Alfonso Bator",
+      role: "Lead Developer",
+      imageUrl: "/images/about-img1.png", // Reusing the old hero image
+    },
+    {
+      name: "Reyna Vaccaro",
+      role: "Project Manager",
+      imageUrl: "/images/about-img2.png", // Reusing the old hero image
+    },
+    {
+      name: "Marcus Schiefer",
+      role: "UX/UI Designer",
+      imageUrl: "/images/about-img3.png", // Reusing the old hero image
+    },
+  ],
+};
+
+// src/lib/constants.ts (add this at the end)
+
+export const journeyData = {
+  badge: "Timeline",
+  title: "Our Journey",
+  subtitle: "Each achievement reflects our commitment to excellence and growth.",
+  events: [
+    {
+      year: "2008",
+      description:
+        "We adapted to a changing landscape, leveraging data-driven insights to create meaningful client experiences.",
+    },
+    {
+      year: "2014",
+      description:
+        "Expanded our services to include AI and automation, helping businesses scale with intelligent technology.",
+    },
+    {
+      year: "2019",
+      description:
+        "Opened our first international office, marking a major milestone in our global expansion and reach.",
+    },
+    {
+      year: "2021",
+      description:
+        "Recognized as a leading innovator in the tech industry for our groundbreaking work in custom software solutions.",
+    },
+  ],
+};
+
+// src/lib/constants.ts (add this at the end)
+
+export const aboutTestimonialsData = {
+  badge: "Testimonials",
+  testimonials: [
+    {
+      quote:
+        "They brought clarity to complex problems, breaking down barriers and delivering innovative solutions. I was truly impressed by how quickly their strategies turned into real, tangible outcomes, driving measurable growth and success for our business.",
+      name: "Sarah Lee",
+      role: "CEO, Tech Innovations",
+      imageUrl: "/images/about-img1.png", // Add an image here
+    },
+    {
+      quote:
+        "Working with this team was a game-changer. Their expertise in AI and automation streamlined our operations and unlocked new levels of efficiency we didn't think were possible.",
+      name: "Michael Chen",
+      role: "COO, Future Solutions",
+      imageUrl: "/images/about-img2.png", // Add an image here
+    },
+    {
+      quote:
+        "The level of dedication and partnership is unmatched. They don't just deliver a service; they invest in your success and become a true extension of your team.",
+      name: "Jessica Rodriguez",
+      role: "Founder, Innovate Co.",
+      imageUrl: "/images/about-img3.png", // Add an image here
+    },
+  ],
+};
+
+// src/lib/constants.ts (add this at the end)
+
+// src/lib/constants.ts
+
+export const servicesHeroData = {
+  imageUrl: "/images/about-img1.png", // Replace with an appropriate services-related image
+};
+
+// src/lib/constants.ts (add this at the end)
+// In src/lib/constants.ts - UPDATE servicesGridData
+
+export const servicesGridData = {
+  badge: "Our Services",
+  title: "Explore our comprehensive service offerings",
+  services: [
+    {
+      title: "Web Development",
+      description:
+        "We build fast, responsive, and secure websites that deliver exceptional user experiences and drive business growth.",
+      imageUrl: "/images/about-img1.png",
+    },
+    {
+      title: "App Development",
+      description:
+        "We design and develop intuitive, high-performance mobile apps for both iOS and Android that users love.",
+      imageUrl: "/images/about-img2.png",
+    },
+    {
+      title: "AI & Automation Solutions",
+      description:
+        "We deploy smart AI agents and automation to streamline your operations, boost sales, and enhance customer experiences.",
+      imageUrl: "/images/about-img3.png",
+    },
+    {
+      title: "Custom Software Development",
+      description:
+        "We engineer bespoke software solutions tailored precisely to solve your unique business challenges and workflows.",
+      imageUrl: "/images/about-img1.png",
+    },
+    {
+      title: "Cloud & DevOps Services",
+      description:
+        "We manage your cloud infrastructure, ensuring scalability, reliability, and peak performance for your applications.",
+      imageUrl: "/images/about-img2.png",
+    },
+    {
+      title: "Data & Analytics",
+      description:
+        "We turn raw data into actionable insights with intuitive custom dashboards and reporting solutions that drive decisions.",
+      imageUrl: "/images/about-img3.png",
+    },
+  ],
+};

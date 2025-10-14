@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 
 const MotionLink = motion(Link);
@@ -11,6 +11,59 @@ const MotionLink = motion(Link);
 export default function Header() {
   const [hoveredLink, setHoveredLink] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  useEffect(() => {
+    const darkSections = document.querySelectorAll(
+      '[data-header-theme="dark"]'
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // Only set dark theme if section is intersecting AND at the top of viewport
+          if (entry.isIntersecting) {
+            const rect = entry.target.getBoundingClientRect();
+            // Check if the section is covering the header area (top ~100px of viewport)
+            if (rect.top <= 100 && rect.bottom > 100) {
+              setIsDarkTheme(true);
+            } else {
+              setIsDarkTheme(false);
+            }
+          } else {
+            setIsDarkTheme(false);
+          }
+        });
+      },
+      {
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+        rootMargin: "0px",
+      }
+    );
+
+    darkSections.forEach((section) => observer.observe(section));
+
+    // Also add scroll listener for more precise control
+    const handleScroll = () => {
+      let shouldBeDark = false;
+      darkSections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        // Check if dark section is covering the header
+        if (rect.top <= 100 && rect.bottom > 100) {
+          shouldBeDark = true;
+        }
+      });
+      setIsDarkTheme(shouldBeDark);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check on mount
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const headerContainerVariants = {
     hidden: { opacity: 0 },
@@ -28,8 +81,13 @@ export default function Header() {
 
   return (
     <>
+      {/* --- DESKTOP HEADER --- */}
       <motion.header
-        className="hidden lg:block fixed top-0 w-full backdrop-blur-[5px] bg-[rgba(245,245,245,0.2)] z-50 border-b-2 border-white/30 font-[satoshi]"
+        className={`hidden lg:block fixed top-0 w-full backdrop-blur-[5px] z-50 border-b-2 font-[satoshi] transition-all duration-300 ${
+          isDarkTheme
+            ? "bg-black/60 border-white/10"
+            : "bg-[rgba(245,245,245,0.2)] border-white/30"
+        }`}
         variants={headerContainerVariants}
         initial="hidden"
         animate="visible"
@@ -55,21 +113,29 @@ export default function Header() {
             onMouseLeave={() => setHoveredLink("")}
           >
             {[
-              { href: "#about", text: "About Us" },
-              { href: "#services", text: "Services" },
+              { href: "/about", text: "About Us" },
+              { href: "/services", text: "Services" },
               { href: "#theprocess", text: "The Process" },
               { href: "#news", text: "News" },
             ].map((link) => (
               <MotionLink
                 key={link.href}
                 href={link.href}
-                className="relative text-gray-600 hover:text-black transition px-3 py-1.5"
+                className={`relative transition-colors duration-300 px-3 py-1.5 ${
+                  isDarkTheme
+                    ? "text-gray-300 hover:text-white"
+                    : "text-gray-600 hover:text-black"
+                }`}
                 onMouseEnter={() => setHoveredLink(link.href)}
               >
                 {link.text}
                 {hoveredLink === link.href && (
                   <motion.div
-                    className="absolute inset-0 bg-white rounded-md -z-10 shadow-[inset_0px_2px_4px_rgba(0,0,0,0.06)]"
+                    className={`absolute inset-0 rounded-md -z-10 transition-colors duration-300 ${
+                      isDarkTheme
+                        ? "bg-white/10"
+                        : "bg-white shadow-[inset_0px_2px_4px_rgba(0,0,0,0.06)]"
+                    }`}
                     layoutId="hover-background"
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
@@ -81,8 +147,12 @@ export default function Header() {
           <motion.div variants={desktopItemVariants}>
             <Link href="/contact">
               <Button
-                variant="black"
-                className="text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3"
+                variant={isDarkTheme ? "secondary" : "black"}
+                className={`text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 transition-colors duration-300 ${
+                  isDarkTheme
+                    ? "!bg-white !text-black hover:!bg-gray-100 !border-white"
+                    : ""
+                }`}
               >
                 Contact Us
               </Button>
@@ -91,8 +161,13 @@ export default function Header() {
         </nav>
       </motion.header>
 
+      {/* --- MOBILE HEADER --- */}
       <motion.div
-        className="lg:hidden fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] z-50 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
+        className={`lg:hidden fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] z-50 backdrop-blur-md rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 ${
+          isDarkTheme
+            ? "bg-black/80 border-white/10"
+            : "bg-white/90 border-gray-100"
+        }`}
         animate={{ height: isMenuOpen ? "auto" : "auto" }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
@@ -109,12 +184,28 @@ export default function Header() {
 
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2">
             {isMenuOpen ? (
-              <X className="w-6 h-6 text-black" />
+              <X
+                className={`w-6 h-6 transition-colors duration-300 ${
+                  isDarkTheme ? "text-white" : "text-black"
+                }`}
+              />
             ) : (
               <div className="w-6 h-6 flex flex-col items-center justify-center gap-[5px]">
-                <div className="w-6 h-[2px] bg-black rounded-full" />
-                <div className="w-6 h-[2px] bg-black rounded-full" />
-                <div className="w-6 h-[2px] bg-black rounded-full" />
+                <div
+                  className={`w-6 h-[2px] rounded-full transition-colors duration-300 ${
+                    isDarkTheme ? "bg-white" : "bg-black"
+                  }`}
+                />
+                <div
+                  className={`w-6 h-[2px] rounded-full transition-colors duration-300 ${
+                    isDarkTheme ? "bg-white" : "bg-black"
+                  }`}
+                />
+                <div
+                  className={`w-6 h-[2px] rounded-full transition-colors duration-300 ${
+                    isDarkTheme ? "bg-white" : "bg-black"
+                  }`}
+                />
               </div>
             )}
           </button>
@@ -129,40 +220,67 @@ export default function Header() {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <div className="border-t border-gray-100" />
+              <div
+                className={`border-t ${
+                  isDarkTheme ? "border-white/10" : "border-gray-100"
+                }`}
+              />
               <div className="px-6 py-6 flex flex-col gap-6">
                 <Link
-                  href="#about"
+                  href="/about"
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-black text-base font-[400] hover:text-gray-600 transition"
+                  className={`text-base font-[400] transition-colors duration-300 ${
+                    isDarkTheme
+                      ? "text-white hover:text-gray-300"
+                      : "text-black hover:text-gray-600"
+                  }`}
                 >
                   About Us
                 </Link>
                 <Link
-                  href="#services"
+                  href="/services"
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-black text-base font-[400] hover:text-gray-600 transition"
+                  className={`text-base font-[400] transition-colors duration-300 ${
+                    isDarkTheme
+                      ? "text-white hover:text-gray-300"
+                      : "text-black hover:text-gray-600"
+                  }`}
                 >
                   Services
                 </Link>
                 <Link
                   href="#theprocess"
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-black text-base font-[400] hover:text-gray-600 transition"
+                  className={`text-base font-[400] transition-colors duration-300 ${
+                    isDarkTheme
+                      ? "text-white hover:text-gray-300"
+                      : "text-black hover:text-gray-600"
+                  }`}
                 >
                   The Process
                 </Link>
                 <Link
                   href="#news"
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-black text-base font-[400] hover:text-gray-600 transition"
+                  className={`text-base font-[400] transition-colors duration-300 ${
+                    isDarkTheme
+                      ? "text-white hover:text-gray-300"
+                      : "text-black hover:text-gray-600"
+                  }`}
                 >
                   News
                 </Link>
 
                 <div className="pt-2">
                   <Link href="/contact" className="block w-full">
-                    <Button variant="black" className="w-full py-3.5 text-base">
+                    <Button
+                      variant={isDarkTheme ? "secondary" : "black"}
+                      className={`w-full py-3.5 text-base transition-colors duration-300 ${
+                        isDarkTheme
+                          ? "!bg-white !text-black hover:!bg-gray-100"
+                          : ""
+                      }`}
+                    >
                       Contact Us
                     </Button>
                   </Link>

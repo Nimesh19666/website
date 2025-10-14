@@ -46,3 +46,7 @@ body {
 /* * {
   border: 1px solid red !important;
 } */
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

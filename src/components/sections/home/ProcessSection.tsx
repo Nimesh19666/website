@@ -47,7 +47,7 @@ export default function ProcessSection() {
   };
 
   return (
-    <section className="bg-[#f8f8f8] py-16 sm:py-24 overflow-hidden">
+    <section className="bg-black py-16 sm:py-24 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -63,10 +63,10 @@ export default function ProcessSection() {
                 {badge}
               </Badge>
             </div>
-            <h2 className="font-heading font-[satoshi] text-3xl font-medium sm:text-4xl md:text-5xl mb-4 bg-[linear-gradient(0deg,rgb(0,0,0)_0%,rgb(255,255,255)_170%)] bg-clip-text text-transparent">
+            <h2 className="font-heading font-[satoshi] text-3xl font-medium sm:text-4xl md:text-5xl mb-4 bg-[linear-gradient(0deg,rgb(255,255,255)_0%,rgb(0,0,0)_190%)] b bg-clip-text text-transparent">
               {title}
             </h2>
-            <p className="text-gray-600 text-sm sm:text-lg max-w-2xl mx-auto">
+            <p className="text-white text-sm sm:text-lg max-w-2xl mx-auto">
               {description}
             </p>
           </motion.div>

@@ -15,13 +15,14 @@ export default function Home() {
       <HeroSection />
       <WhyChooseUs />
       <FeaturesSection />
-      <ServicesSection />
       <ProcessSection />
+
+      <ServicesSection />
       <TestimonialsSection />
-      <PricingSection />
+      {/* <PricingSection /> */}
       <ComparisonSection />
-      <TeamSection />
-      <FAQSection />
+      {/* <TeamSection />
+      <FAQSection /> */}
     </>
   );
 }

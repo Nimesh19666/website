@@ -89,7 +89,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="bg-[#f8f8f8] py-16 sm:py-24 overflow-hidden">
+    <section className="bg-black py-16 sm:py-24 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -104,10 +104,10 @@ export default function TestimonialsSection() {
                 {badge}
               </Badge>
             </div>
-            <h2 className="font-heading text-3xl font-[satoshi] font-medium sm:text-4xl md:text-5xl mb-4 bg-[linear-gradient(0deg,rgb(0,0,0)_0%,rgb(255,255,255)_170%)] bg-clip-text text-transparent">
+            <h2 className="font-heading text-3xl font-[satoshi] font-medium sm:text-4xl md:text-5xl mb-4 bg-[linear-gradient(0deg,rgb(255,255,255)_0%,rgb(0,0,0)_190%)]  bg-clip-text text-transparent">
               {title}
             </h2>
-            <p className="text-gray-600 text-sm sm:text-lg max-w-2xl mx-auto">
+            <p className="text-white text-sm sm:text-lg max-w-2xl mx-auto">
               {description}
             </p>
           </motion.div>
@@ -189,10 +189,10 @@ export default function TestimonialsSection() {
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.1 }}
                 >
-                  <h3 className="text-4xl font-[satoshi] sm:text-2xl font-light text-black mb-2">
+                  <h3 className="text-4xl font-[satoshi] sm:text-2xl font-light text-white mb-2">
                     {stat.value}
                   </h3>
-                  <p className="text-gray-600 text-sm">{stat.label}</p>
+                  <p className="text-white text-sm">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
