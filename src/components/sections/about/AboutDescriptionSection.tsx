@@ -2,14 +2,14 @@
 
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { aboutDescriptionData } from "@/lib/constants";
 import Badge from "@/components/ui/Badge";
 
 export default function AboutDescriptionSection() {
   const { badge, text } = aboutDescriptionData;
 
-  const variants = {
+  const variants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
