@@ -16,12 +16,13 @@ export default function Header() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const pathname = usePathname();
 
-  // Scroll to top on route change
+  // Scroll to top on route change & close menu
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    setIsMenuOpen(false); // Close mobile menu on navigation
+    setIsMenuOpen(false);
   }, [pathname]);
 
+  // REFINED THEME-SWITCHING LOGIC
   useEffect(() => {
     const darkSections = document.querySelectorAll(
       '[data-header-theme="dark"]'
@@ -29,50 +30,24 @@ export default function Header() {
 
     const observer = new IntersectionObserver(
       (entries) => {
+        let anyDarkSectionVisible = false;
         entries.forEach((entry) => {
-          // Only set dark theme if section is intersecting AND at the top of viewport
           if (entry.isIntersecting) {
-            const rect = entry.target.getBoundingClientRect();
-            // Check if the section is covering the header area (top ~100px of viewport)
-            if (rect.top <= 100 && rect.bottom > 100) {
-              setIsDarkTheme(true);
-            } else {
-              setIsDarkTheme(false);
-            }
-          } else {
-            setIsDarkTheme(false);
+            anyDarkSectionVisible = true;
           }
         });
+        setIsDarkTheme(anyDarkSectionVisible);
       },
       {
-        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-        rootMargin: "0px",
+        rootMargin: "-100px 0px -90% 0px",
+        threshold: 0,
       }
     );
 
     darkSections.forEach((section) => observer.observe(section));
 
-    // Also add scroll listener for more precise control
-    const handleScroll = () => {
-      let shouldBeDark = false;
-      darkSections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        // Check if dark section is covering the header
-        if (rect.top <= 100 && rect.bottom > 100) {
-          shouldBeDark = true;
-        }
-      });
-      setIsDarkTheme(shouldBeDark);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check on mount
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+    return () => observer.disconnect();
+  }, [pathname]);
 
   const headerContainerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -107,8 +82,9 @@ export default function Header() {
             className="flex items-center gap-2"
             variants={desktopItemVariants}
           >
+            {/* --- 1. DESKTOP LOGO CHANGE --- */}
             <Image
-              src="/logo.png"
+              src={isDarkTheme ? "/white-logo.png" : "/logo.png"}
               alt="Logo"
               width={80}
               height={32}
@@ -157,10 +133,10 @@ export default function Header() {
             <Link href="/contact">
               <Button
                 variant={isDarkTheme ? "secondary" : "black"}
-                className={`text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 transition-colors duration-300 ${
+                className={`text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 transition-colors duration-300 border-2 ${
                   isDarkTheme
-                    ? "!bg-white !text-black hover:!bg-gray-100 !border-white"
-                    : ""
+                    ? "!bg-white !text-black border-white"
+                    : "border-transparent"
                 }`}
               >
                 Contact Us
@@ -182,8 +158,9 @@ export default function Header() {
       >
         <div className="flex items-center justify-between px-5 py-4">
           <Link href="/">
+            {/* --- 2. MOBILE LOGO CHANGE --- */}
             <Image
-              src="/logo.png"
+              src={isDarkTheme ? "/white-logo.png" : "/logo.png"}
               alt="Logo"
               width={70}
               height={28}

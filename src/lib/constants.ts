@@ -1,3 +1,5 @@
+// src/lib/constants.ts
+
 export const whyChooseUsData = {
   badge: "About US",
   title: "Why Choose Us",
@@ -6,26 +8,29 @@ export const whyChooseUsData = {
     {
       iconName: "LineChart" as const,
       title: "Your End-to-End Technology Partner",
-      description: "Your single, unified partner for all digital needs."
+      description: "Your single, unified partner for all digital needs.",
+      imageUrl: "/images/home/home-hero1.jpg", // Add this line
     },
     {
       iconName: "TrendingUp" as const,
       title: "Intelligent Automation at the Core",
-      description: "We build smart AI systems that power growth."
+      description: "We build smart AI systems that power growth.",
+      imageUrl: "/images/home/home-hero2.jpg", // Add this line
     },
     {
       iconName: "RefreshCw" as const,
       title: "Focused Purely on Your Growth",
-      description: "Your business growth is our most important metric."
-    }
+      description: "Your business growth is our most important metric.",
+      imageUrl: "/images/home/home-hero3.jpg", // Add this line
+    },
   ],
   features: [
     "Seamless Automation",
     "Data-Driven Marketing",
     "AI-Powered Engagement",
     "Growth-Driven Strategy",
-    "Cloud & DevOps Solutions"
-  ]
+    "Cloud & DevOps Solutions",
+  ],
 };
 export const featuresSectionData = {
   badge: "Pillars",
@@ -37,7 +42,7 @@ export const featuresSectionData = {
       description:
         "We establish your complete digital presence, from a stunning website and memorable brand identity to your core infrastructure.",
       iconName: "Cpu",
-      imageUrl: "/images/ai.avif", 
+      imageUrl: "/images/home/home-pillars1.jpg", 
     },
     {
       title: "Grow Your Audience",
@@ -56,10 +61,12 @@ export const featuresSectionData = {
       description:
         "We captivate your market and define your brand identity with AI-powered video, motion graphics, and advanced creative work.",
       iconName: "MessageSquareHeart",
-      imageUrl: "/images/ai.avif", 
+      imageUrl: "/images/home/home-pillars2.jpg", 
     },
   ],
 };
+
+// src/lib/constants.ts
 
 export const servicesSectionData = {
   badge: "SERVICES",
@@ -69,38 +76,44 @@ export const servicesSectionData = {
     {
       title: "Web Development",
       description:
-        "We build fast, responsive, and secure websites that deliver exceptional user experiences..",
+        "We build fast, responsive, and secure websites that deliver exceptional user experiences.",
       iconName: "BarChartBig",
+      imageUrl: "/images/home/home-service1.jpg", // Add this
     },
     {
       title: "App Development",
       description:
         "We design and develop intuitive, high-performance mobile apps for both iOS and Android.",
       iconName: "PenSquare",
+      imageUrl: "/images/home/home-service2.jpg", // Add this
     },
     {
       title: "AI & Automation Solutions",
       description:
         "We deploy smart AI agents and automation to streamline your operations and boost sales.",
       iconName: "MessageSquareHeart",
+      imageUrl: "/images/home/home-service3.jpg", // Add this
     },
     {
       title: "Custom Software Development",
       description:
         "We engineer bespoke software solutions tailored precisely to solve your business challenges.",
       iconName: "Workflow",
+      imageUrl: "/images/home/home-service4.jpg", // Add this (can be a different image)
     },
-        {
+    {
       title: "Cloud & DevOps Services",
       description:
         "We manage your cloud infrastructure, ensuring scalability, reliability, and peak performance.",
       iconName: "BarChartBig",
+      imageUrl: "/images/home/home-service5.jpg", // Add this (can be a different image)
     },
     {
       title: "Data & Analytics",
       description:
         "We turn raw data into actionable insights with intuitive custom dashboards and reporting solutions.",
       iconName: "PenSquare",
+      imageUrl: "/images/home/home-service6.png", // Add this (can be a different image)
     },
   ],
 };
@@ -116,7 +129,7 @@ export const processSectionData = {
       title: "Blueprint",
       description:
         "We begin by mapping your vision, defining clear project goals, and creating a detailed strategic plan.",
-      imageUrl: "/images/process1.avif",
+      imageUrl: "/images/home/home-process1.jpg",
       iconName: "Search" as const, 
     },
     {
@@ -124,7 +137,7 @@ export const processSectionData = {
       title: "Craft",
       description:
         "Our team designs an intuitive user experience and a stunning visual interface that brings the project to life.",
-      imageUrl: "/images/process2.avif",
+      imageUrl: "/images/home/home-process2.jpg",
       iconName: "Rocket" as const, 
     },
     {
@@ -132,7 +145,7 @@ export const processSectionData = {
       title: "Construct",
       description:
         "We write clean, scalable code to build your solution and seamlessly integrate all necessary technologies.",
-      imageUrl: "/images/process3.avif",
+      imageUrl: "/images/home/home-process3.jpg",
       iconName: "Settings" as const, 
     },
         {
@@ -140,7 +153,7 @@ export const processSectionData = {
       title: "Launch & Accelerate",
       description:
         "We deploy the final product, run rigorous tests, and work with you to ensure a successful post-launch journey.",
-      imageUrl: "/images/process3.avif",
+      imageUrl: "/images/home/home-process4.jpg",
       iconName: "Settings" as const, 
     },
   ],
@@ -471,16 +484,13 @@ export const aboutTestimonialsData = {
   ],
 };
 
-// src/lib/constants.ts (add this at the end)
 
-// src/lib/constants.ts
 
 export const servicesHeroData = {
-  imageUrl: "/images/about-img1.png", // Replace with an appropriate services-related image
+  imageUrl: "/images/service/service-hero.png", // Replace with an appropriate services-related image
 };
 
-// src/lib/constants.ts (add this at the end)
-// In src/lib/constants.ts - UPDATE servicesGridData
+
 
 export const servicesGridData = {
   badge: "Our Services",
@@ -490,37 +500,80 @@ export const servicesGridData = {
       title: "Web Development",
       description:
         "We build fast, responsive, and secure websites that deliver exceptional user experiences and drive business growth.",
-      imageUrl: "/images/about-img1.png",
+      imageUrl: "/images/service/service-web.jpg",
     },
     {
       title: "App Development",
       description:
         "We design and develop intuitive, high-performance mobile apps for both iOS and Android that users love.",
-      imageUrl: "/images/about-img2.png",
+      imageUrl: "/images/service/service-app.jpg",
     },
     {
       title: "AI & Automation Solutions",
       description:
         "We deploy smart AI agents and automation to streamline your operations, boost sales, and enhance customer experiences.",
-      imageUrl: "/images/about-img3.png",
+      imageUrl: "/images/service/service-ai.jpg",
     },
     {
       title: "Custom Software Development",
       description:
         "We engineer bespoke software solutions tailored precisely to solve your unique business challenges and workflows.",
-      imageUrl: "/images/about-img1.png",
+      imageUrl: "/images/service/service-software.jpg",
     },
     {
       title: "Cloud & DevOps Services",
       description:
         "We manage your cloud infrastructure, ensuring scalability, reliability, and peak performance for your applications.",
-      imageUrl: "/images/about-img2.png",
+      imageUrl: "/images/service/service-devops.jpg",
     },
     {
       title: "Data & Analytics",
       description:
         "We turn raw data into actionable insights with intuitive custom dashboards and reporting solutions that drive decisions.",
-      imageUrl: "/images/about-img3.png",
+      imageUrl: "/images/service/service-data.jpg",
     },
+  ],
+};
+
+// src/lib/constants.ts (add this at the end of the file)
+
+export const termsAndConditionsData = {
+  title: "Terms & Conditions",
+  sections: [
+    {
+      title: "1. Acceptance of Terms",
+      content:
+        "By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement. In addition, when using this website's particular services, you shall be subject to any posted guidelines or rules applicable to such services.",
+    },
+    {
+      title: "2. Intellectual Property",
+      content:
+        "The Site and its original content, features, and functionality are owned by Nuopod and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.",
+    },
+    {
+      title: "3. Limitation of Liability",
+      content:
+        "In no event shall Nuopod, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses.",
+    },
+        {
+      title: "4. Acceptance of Terms",
+      content:
+        "By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement. In addition, when using this website's particular services, you shall be subject to any posted guidelines or rules applicable to such services.",
+    },
+    {
+      title: "5. Intellectual Property",
+      content:
+        "The Site and its original content, features, and functionality are owned by Nuopod and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.",
+    },
+    {
+      title: "6. Limitation of Liability",
+      content:
+        "In no event shall Nuopod, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses.",
+    },
+    // You can easily add more sections here
+    // {
+    //   title: "4. Governing Law",
+    //   content: "Your use of the Site will be governed by the laws of India..."
+    // }
   ],
 };

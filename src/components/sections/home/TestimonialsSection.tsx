@@ -89,7 +89,10 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="bg-black py-16 sm:py-24 overflow-hidden">
+    <section
+      className="bg-black py-16 sm:py-24 overflow-hidden"
+      data-header-theme="dark"
+    >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div

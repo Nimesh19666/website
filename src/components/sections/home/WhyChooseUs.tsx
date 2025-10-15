@@ -1,10 +1,14 @@
+// components/sections/home/WhyChooseUs.tsx
+
 "use client";
 
 import { whyChooseUsData } from "@/lib/constants";
 import { LineChart, TrendingUp, RefreshCw, LucideIcon } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import Badge from "../../ui/Badge";
-// new changes
+import Image from "next/image"; // 1. Import the Image component
+
+// This part of the code remains unchanged
 const iconMap: Record<string, LucideIcon> = {
   LineChart,
   TrendingUp,
@@ -24,6 +28,7 @@ const UIPill = ({
     {children}
   </div>
 );
+// ----
 
 export default function WhyChooseUs() {
   const { badge, title, description, benefits, features } = whyChooseUsData;
@@ -63,7 +68,10 @@ export default function WhyChooseUs() {
   } as const;
 
   return (
-    <section className="bg-black py-16 sm:py-24 overflow-hidden">
+    <section
+      className="bg-black py-16 sm:py-24 overflow-hidden"
+      data-header-theme="dark"
+    >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -90,15 +98,19 @@ export default function WhyChooseUs() {
               </div>
             </motion.div>
 
+            {/* Card 1 */}
             <motion.div
               className="bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] p-8 rounded-2xl md:col-span-2"
               variants={itemVariants}
             >
-              <div className="h-48 bg-gray-100 rounded-lg p-4 flex justify-between items-start mb-6">
-                <UIPill className="w-1/3 h-12" />
-                <div className="flex flex-col items-end gap-2">
-                  <UIPill className="w-8 h-8" />
-                </div>
+              {/* 2. Replace the placeholder div with the Image */}
+              <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
+                <Image
+                  src={benefits[0].imageUrl}
+                  alt={benefits[0].title}
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-xl font-[400] text-black mb-2">
                 {benefits[0].title}
@@ -106,16 +118,19 @@ export default function WhyChooseUs() {
               <p className="text-gray-600">{benefits[0].description}</p>
             </motion.div>
 
+            {/* Card 2 */}
             <motion.div
               className="bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] p-8 rounded-2xl md:col-span-2"
               variants={itemVariants}
             >
-              <div className="h-48 bg-gray-100 rounded-lg p-4 flex flex-col justify-between mb-6">
-                <div className="flex justify-between items-start">
-                  <UIPill className="w-8 h-8 rounded-full" />
-                  <UIPill className="w-24 h-8 !bg-gray-200" />
-                </div>
-                <UIPill className="w-full h-20" />
+              {/* 2. Replace the placeholder div with the Image */}
+              <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
+                <Image
+                  src={benefits[1].imageUrl}
+                  alt={benefits[1].title}
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-xl font-[400] text-black mb-2">
                 {benefits[1].title}
@@ -123,15 +138,19 @@ export default function WhyChooseUs() {
               <p className="text-gray-600">{benefits[1].description}</p>
             </motion.div>
 
+            {/* Card 3 */}
             <motion.div
               className="bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] p-8 rounded-2xl md:col-span-2"
               variants={itemVariants}
             >
-              <div className="h-48 bg-gray-100 rounded-lg p-4 grid grid-cols-3 grid-rows-3 gap-2 mb-6">
-                <UIPill className="col-start-2 row-start-1" />
-                <UIPill className="col-start-1 row-start-2 w-12 h-12 flex items-center justify-center"></UIPill>
-                <UIPill className="col-start-3 row-start-2" />
-                <UIPill className="col-start-2 row-start-3" />
+              {/* 2. Replace the placeholder div with the Image */}
+              <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
+                <Image
+                  src={benefits[2].imageUrl}
+                  alt={benefits[2].title}
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-xl font-[400] text-black mb-2">
                 {benefits[2].title}

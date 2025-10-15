@@ -14,7 +14,10 @@ export default function ServicesGrid() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="bg-black text-white py-20 sm:py-28">
+    <section
+      className="bg-black text-white py-20 sm:py-28"
+      data-header-theme="dark"
+    >
       <div className="mx-[230px] px-4 sm:px-6">
         <Badge className="!bg-white/10 !text-white w-max !shadow-none border border-white/30 px-5 py-2 rounded-full mb-6">
           {badge}
@@ -31,11 +34,13 @@ export default function ServicesGrid() {
                 <button
                   key={service.title}
                   onClick={() => setActiveIndex(index)}
-                  className={`w-full text-left py-6 border-b border-neutral-800 transition-colors duration-300 ${
+                  className={`w-full text-left py-4 border-b border-neutral-800 transition-colors duration-300 ${
                     activeIndex === index ? "text-white" : "text-neutral-500"
                   }`}
                 >
-                  <h3 className="text-3xl font-light">{service.title}</h3>
+                  <h3 className="text-2xl font-light cursor-pointer">
+                    {service.title}
+                  </h3>
                 </button>
               ))}
             </div>
@@ -62,23 +67,44 @@ export default function ServicesGrid() {
             </Button>
           </div>
 
-          {/* Right Column: Image that changes based on active service */}
-          <div className="lg:sticky top-28 w-full h-[500px]">
+          {/* Right Column: Image with curtain drop animation */}
+          <div className="w-full h-full">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
                 className="relative w-full h-full rounded-2xl overflow-hidden"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
               >
-                <Image
-                  src={services[activeIndex].imageUrl}
-                  alt={services[activeIndex].title}
-                  fill
-                  className="object-cover"
-                />
+                {/* Curtain drop animation wrapper */}
+                <motion.div
+                  className="relative w-full h-full"
+                  initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
+                  animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
+                  transition={{
+                    duration: 1.8,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
+                  <motion.div
+                    initial={{ filter: "blur(20px)", scale: 1.05 }}
+                    animate={{ filter: "blur(0px)", scale: 1 }}
+                    transition={{
+                      duration: 1.8,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                    className="w-full h-full"
+                  >
+                    <Image
+                      src={services[activeIndex].imageUrl}
+                      alt={services[activeIndex].title}
+                      fill
+                      className="object-cover"
+                    />
+                  </motion.div>
+                </motion.div>
               </motion.div>
             </AnimatePresence>
           </div>

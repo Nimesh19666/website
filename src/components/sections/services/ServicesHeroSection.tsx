@@ -35,22 +35,45 @@ export default function ServicesHeroSection() {
     <section className="bg-[#f8f8f8] py-20 sm:py-28">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side: Image Only */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative w-full h-[550px] rounded-2xl overflow-hidden shadow-lg"
+            className="relative w-full h-[600px] rounded-2xl overflow-hidden"
           >
-            <Image
-              src={imageUrl}
-              alt="A team collaborating on a project"
-              fill
-              className="object-cover"
-            />
+            {/* Image Container */}
+            <motion.div
+              className="relative w-full h-full bg-transparent"
+              initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
+              animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
+              transition={{
+                duration: 4,
+                ease: [0.16, 1, 0.3, 1], // Custom ease that slows down at the end
+                delay: 0.2,
+              }}
+            >
+              <motion.div
+                initial={{ filter: "blur(20px)", scale: 1.05 }}
+                animate={{ filter: "blur(0px)", scale: 1 }}
+                transition={{
+                  duration: 1.8,
+                  ease: [0.16, 1, 0.3, 1],
+                  delay: 0.4,
+                }}
+                className="w-full h-full"
+              >
+                <Image
+                  src={imageUrl}
+                  alt="A team collaborating on a project"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </motion.div>
+            </motion.div>
           </motion.div>
 
-          {/* Right Side: Contact Form (with correct styling) */}
+          {/* Right Side: Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
