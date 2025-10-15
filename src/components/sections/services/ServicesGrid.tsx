@@ -1,5 +1,3 @@
-// src/components/sections/services/ServicesGrid.tsx
-
 "use client";
 
 import { useState } from "react";
@@ -18,38 +16,37 @@ export default function ServicesGrid() {
       className="bg-black text-white py-20 sm:py-28"
       data-header-theme="dark"
     >
-      <div className="mx-[230px] px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Badge className="!bg-white/10 !text-white w-max !shadow-none border border-white/30 px-5 py-2 rounded-full mb-6">
           {badge}
         </Badge>
-        <h2 className="text-4xl pr-[20rem] sm:text-6xl font-light font-[satoshi] mb-12">
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light font-[satoshi] mb-12 lg:pr-72">
           {title}
         </h2>
-        <div className="grid grid-cols-[40%_60%] gap-12 items-start">
-          {/* Left Column: Text Content and Service List */}
-          <div className="lg:sticky top-28">
-            {/* Service Tabs/List */}
-            <div className="space-y-4 border-t border-neutral-800">
+        <div className="grid grid-cols-1 lg:grid-cols-[40%_1fr] gap-12 items-start">
+          <div className="lg:sticky lg:top-28">
+            <div className="space-y-2 border-t border-neutral-800">
               {services.map((service, index) => (
                 <button
                   key={service.title}
                   onClick={() => setActiveIndex(index)}
                   className={`w-full text-left py-4 border-b border-neutral-800 transition-colors duration-300 ${
-                    activeIndex === index ? "text-white" : "text-neutral-500"
+                    activeIndex === index
+                      ? "text-white"
+                      : "text-neutral-500 hover:text-white"
                   }`}
                 >
-                  <h3 className="text-2xl font-light cursor-pointer">
+                  <h3 className="text-xl sm:text-2xl font-light cursor-pointer">
                     {service.title}
                   </h3>
                 </button>
               ))}
             </div>
 
-            {/* Description that changes based on active service */}
             <AnimatePresence mode="wait">
               <motion.p
                 key={activeIndex}
-                className="text-white mt-8 mb-6"
+                className="text-neutral-300 mt-8 mb-6 min-h-[6rem]"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
@@ -67,8 +64,7 @@ export default function ServicesGrid() {
             </Button>
           </div>
 
-          {/* Right Column: Image with curtain drop animation */}
-          <div className="w-full h-full">
+          <div className="w-full h-[30rem] sm:h-[40rem] lg:h-full">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
@@ -78,7 +74,6 @@ export default function ServicesGrid() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Curtain drop animation wrapper */}
                 <motion.div
                   className="relative w-full h-full"
                   initial={{ clipPath: "inset(0% 0% 100% 0%)" }}

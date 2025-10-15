@@ -1,14 +1,12 @@
-// src/components/sections/about/AboutTeamSection.tsx
-
 "use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { aboutTeamData } from "@/lib/constants"; // <-- IMPORTING DATA
+import { aboutTeamData } from "@/lib/constants";
 import Badge from "@/components/ui/Badge";
 
 export default function AboutTeamSection() {
-  const { badge, title, members } = aboutTeamData; // <-- Using data from constants
+  const { badge, title, members } = aboutTeamData;
 
   const containerVariants = {
     hidden: {},
@@ -21,15 +19,14 @@ export default function AboutTeamSection() {
   };
 
   return (
-    <section className="bg-[#f8f8f8] py-16 sm:py-12">
+    <section className="bg-[#f8f8f8] py-16 sm:py-24">
       <motion.div
-        className="mx-30 px-4 sm:px-6 text-center"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
       >
-        {/* Section Header */}
         <motion.div variants={itemVariants} className="inline-block mb-4">
           <Badge className="w-full text-sm sm:w-auto px-4 py-1 !shadow-[inset_0px_3px_0px_#fff] rounded-[30px]">
             {badge}
@@ -37,27 +34,26 @@ export default function AboutTeamSection() {
         </motion.div>
         <motion.h2
           variants={itemVariants}
-          className="font-[satoshi] text-4xl font-medium sm:text-5xl mb-16 bg-[linear-gradient(0deg,rgb(0,0,0)_0%,rgb(255,255,255)_170%)] bg-clip-text text-transparent"
+          className="font-[satoshi] text-4xl font-medium sm:text-5xl mb-12 md:mb-16 bg-gradient-to-b from-black to-zinc-700 bg-clip-text text-transparent"
         >
           {title}
         </motion.h2>
 
-        {/* Team Members Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {members.map((member, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <div className="relative w-full h-100 rounded-3xl  overflow-hidden group">
+              <div className="relative w-full h-96 md:h-100 rounded-3xl overflow-hidden group">
                 <Image
                   src={member.imageUrl}
                   alt={`Photo of ${member.name}`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute text-left inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                <div className="absolute text-left inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/70 to-transparent">
                   <h3 className="text-xl font-medium text-white font-[satoshi]">
                     {member.name}
                   </h3>
-                  <p className="text-s text-[#BFBEBE]">{member.role}</p>
+                  <p className="text-sm text-[#BFBEBE]">{member.role}</p>
                 </div>
               </div>
             </motion.div>

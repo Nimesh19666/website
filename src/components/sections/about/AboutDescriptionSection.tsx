@@ -1,5 +1,3 @@
-// src/components/sections/about/AboutDescriptionSection.tsx
-
 "use client";
 
 import { motion, Variants } from "framer-motion";
@@ -19,25 +17,23 @@ export default function AboutDescriptionSection() {
   };
 
   return (
-    <section className="bg-[#f8f8f8] py-16 sm:py-12">
+    <section className="bg-[#f8f8f8] py-16 sm:py-24">
       <motion.div
-        className=" mx-[200px] px-10 sm:px-10"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={variants}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-          {/* Badge on the left */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-12 items-start">
           <div className="lg:col-span-1">
-            <Badge className="w-fit text-[14px] px-4 py-1 flex items-center !shadow-[inset_0px_3px_0px_#fff] rounded-[30px]">
+            <Badge className="w-fit text-sm px-4 py-1 flex items-center !shadow-[inset_0px_3px_0px_#fff] rounded-[30px]">
               {badge}
             </Badge>
           </div>
 
-          {/* Text on the right */}
           <div className="lg:col-span-4">
-            <p className="text-xl sm:text-3xl text-gray-700 leading-relaxed">
+            <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 leading-relaxed">
               {text}
             </p>
           </div>

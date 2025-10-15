@@ -6,7 +6,6 @@ import Badge from "../../ui/Badge";
 import Image from "next/image";
 import { Search, Rocket, Settings, LucideIcon } from "lucide-react";
 
-// The iconMap remains the same
 const iconMap: Record<string, LucideIcon> = {
   Search,
   Rocket,
@@ -16,7 +15,6 @@ const iconMap: Record<string, LucideIcon> = {
 export default function ProcessSection() {
   const { badge, title, description, steps } = processSectionData;
 
-  // Animation variants for the section title
   const titleVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -26,7 +24,6 @@ export default function ProcessSection() {
     },
   };
 
-  // Variants for cards sliding in from the left
   const variantsFromLeft = {
     hidden: { opacity: 0, x: -50 },
     visible: {
@@ -36,7 +33,6 @@ export default function ProcessSection() {
     },
   };
 
-  // Variants for cards sliding in from the right
   const variantsFromRight = {
     hidden: { opacity: 0, x: 50 },
     visible: {
@@ -53,7 +49,6 @@ export default function ProcessSection() {
     >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
           <motion.div
             className="text-center mb-12"
             initial="hidden"
@@ -74,9 +69,7 @@ export default function ProcessSection() {
             </p>
           </motion.div>
 
-          {/* Dynamic Grid for Process Steps */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* We now map over the 'steps' array to dynamically create the cards */}
             {steps.map((step, index) => {
               const Icon = iconMap[step.iconName];
               return (

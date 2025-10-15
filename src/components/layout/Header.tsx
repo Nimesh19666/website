@@ -16,13 +16,11 @@ export default function Header() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const pathname = usePathname();
 
-  // Scroll to top on route change & close menu
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setIsMenuOpen(false);
   }, [pathname]);
 
-  // REFINED THEME-SWITCHING LOGIC
   useEffect(() => {
     const darkSections = document.querySelectorAll(
       '[data-header-theme="dark"]'
@@ -65,7 +63,6 @@ export default function Header() {
 
   return (
     <>
-      {/* --- DESKTOP HEADER --- */}
       <motion.header
         className={`hidden lg:block fixed top-0 w-full backdrop-blur-[5px] z-50 border-b-2 font-[satoshi] transition-all duration-300 ${
           isDarkTheme
@@ -82,7 +79,6 @@ export default function Header() {
             className="flex items-center gap-2"
             variants={desktopItemVariants}
           >
-            {/* --- 1. DESKTOP LOGO CHANGE --- */}
             <Image
               src={isDarkTheme ? "/white-logo.png" : "/logo.png"}
               alt="Logo"
@@ -146,7 +142,6 @@ export default function Header() {
         </nav>
       </motion.header>
 
-      {/* --- MOBILE HEADER --- */}
       <motion.div
         className={`lg:hidden fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] z-50 backdrop-blur-md rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 ${
           isDarkTheme
@@ -158,7 +153,6 @@ export default function Header() {
       >
         <div className="flex items-center justify-between px-5 py-4">
           <Link href="/">
-            {/* --- 2. MOBILE LOGO CHANGE --- */}
             <Image
               src={isDarkTheme ? "/white-logo.png" : "/logo.png"}
               alt="Logo"

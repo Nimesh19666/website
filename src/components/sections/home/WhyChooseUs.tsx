@@ -1,14 +1,11 @@
-// components/sections/home/WhyChooseUs.tsx
-
 "use client";
 
 import { whyChooseUsData } from "@/lib/constants";
 import { LineChart, TrendingUp, RefreshCw, LucideIcon } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import Badge from "../../ui/Badge";
-import Image from "next/image"; // 1. Import the Image component
+import Image from "next/image";
 
-// This part of the code remains unchanged
 const iconMap: Record<string, LucideIcon> = {
   LineChart,
   TrendingUp,
@@ -98,12 +95,10 @@ export default function WhyChooseUs() {
               </div>
             </motion.div>
 
-            {/* Card 1 */}
             <motion.div
               className="bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] p-8 rounded-2xl md:col-span-2"
               variants={itemVariants}
             >
-              {/* 2. Replace the placeholder div with the Image */}
               <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
                 <Image
                   src={benefits[0].imageUrl}
@@ -118,12 +113,10 @@ export default function WhyChooseUs() {
               <p className="text-gray-600">{benefits[0].description}</p>
             </motion.div>
 
-            {/* Card 2 */}
             <motion.div
               className="bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] p-8 rounded-2xl md:col-span-2"
               variants={itemVariants}
             >
-              {/* 2. Replace the placeholder div with the Image */}
               <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
                 <Image
                   src={benefits[1].imageUrl}
@@ -138,12 +131,10 @@ export default function WhyChooseUs() {
               <p className="text-gray-600">{benefits[1].description}</p>
             </motion.div>
 
-            {/* Card 3 */}
             <motion.div
               className="bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] p-8 rounded-2xl md:col-span-2"
               variants={itemVariants}
             >
-              {/* 2. Replace the placeholder div with the Image */}
               <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
                 <Image
                   src={benefits[2].imageUrl}

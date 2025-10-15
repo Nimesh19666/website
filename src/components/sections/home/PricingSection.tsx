@@ -51,7 +51,6 @@ export default function PricingSection() {
             </p>
           </div>
 
-          {/* Monthly/Yearly Toggle */}
           <div className="flex justify-center items-center mb-12">
             <div className="bg-white rounded-full p-1 flex items-center gap-3 shadow-sm">
               <button
@@ -172,7 +171,6 @@ export default function PricingSection() {
             ))}
           </motion.div>
 
-          {/* Footer Text */}
           <div className="text-center">
             <p className="inline-block bg-white text-gray-700 text-sm px-4 py-2 rounded-lg shadow-sm">
               {footerText}

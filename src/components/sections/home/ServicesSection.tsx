@@ -1,11 +1,9 @@
-// components/sections/home/ServicesSection.tsx
-
 "use client";
 
 import { servicesSectionData } from "@/lib/constants";
 import { motion } from "framer-motion";
 import Badge from "../../ui/Badge";
-import Image from "next/image"; // Import the Image component
+import Image from "next/image";
 
 export default function ServicesSection() {
   const { badge, title, description, services } = servicesSectionData;
@@ -25,7 +23,6 @@ export default function ServicesSection() {
     <section className="bg-[#f8f8f8] py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Header Section (unchanged) */}
           <motion.div
             className="text-center mb-12"
             initial="hidden"
@@ -46,9 +43,7 @@ export default function ServicesSection() {
             </p>
           </motion.div>
 
-          {/* Updated Grid Layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Loop through services to create cards dynamically */}
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -58,7 +53,6 @@ export default function ServicesSection() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.1 }}
               >
-                {/* Replace placeholder with Image */}
                 <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
                   <Image
                     src={service.imageUrl}

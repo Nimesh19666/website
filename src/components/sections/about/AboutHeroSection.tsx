@@ -40,7 +40,6 @@ export default function AboutHeroSection() {
       opacity: 1,
       y: 0,
       scaleY: 1,
-      // UPDATED to a smoother spring animation
       transition: {
         type: "spring",
         damping: 30,
@@ -55,7 +54,6 @@ export default function AboutHeroSection() {
       opacity: 1,
       y: 0,
       scaleY: 1,
-      // UPDATED to a smoother spring animation
       transition: {
         type: "spring",
         damping: 30,
@@ -68,15 +66,14 @@ export default function AboutHeroSection() {
     <section
       id="about-hero-section"
       data-header-theme="dark"
-      className="bg-black text-white py-20 sm:py-24"
+      className="bg-black text-white py-28 md:py-28"
     >
       <motion.div
-        className="mx-auto px-4 sm:px-6 text-center max-w-7xl"
+        className="mx-auto max-w-7xl px-4 sm:px-6 text-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        {/* Text items */}
         <motion.div variants={itemVariants} className="inline-block mb-6">
           <Badge className=" !text-black !shadow-[inset_0px_3px_0px_#fff] border border-white/30 px-4 py-1 rounded-full">
             About Us
@@ -90,21 +87,19 @@ export default function AboutHeroSection() {
         </motion.h1>
         <motion.p
           variants={itemVariants}
-          className="text-[16px] text-neutral-300 mt-6 max-w-[32.25rem] mx-auto"
+          className="text-base text-neutral-300 mt-6 max-w-2xl mx-auto"
         >
           With years of experience across various industries, our dedicated team
           is committed to driving growth and operational excellence.
         </motion.p>
 
-        {/* Image Grid */}
         <motion.div
           variants={gridVariants}
-          className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-6"
+          className="mt-16 lg:mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {/* Images */}
           <motion.div
             variants={imageTopVariants}
-            className="relative h-116 w-full rounded-2xl overflow-hidden"
+            className="relative h-96 sm:h-116 w-full rounded-2xl overflow-hidden"
           >
             <Image
               src="/images/about/about-hero-1.png"
@@ -115,7 +110,7 @@ export default function AboutHeroSection() {
           </motion.div>
           <motion.div
             variants={imageBottomVariants}
-            className="relative h-116 w-full rounded-2xl overflow-hidden"
+            className="relative h-96 sm:h-116 w-full rounded-2xl overflow-hidden"
           >
             <Image
               src="/images/about/about-hero-2.png"
@@ -126,7 +121,7 @@ export default function AboutHeroSection() {
           </motion.div>
           <motion.div
             variants={imageTopVariants}
-            className="relative h-116 w-full rounded-2xl overflow-hidden sm:col-span-2 lg:col-span-1"
+            className="relative h-96 sm:h-116 w-full rounded-2xl overflow-hidden sm:col-span-2 lg:col-span-1"
           >
             <Image
               src="/images/about/about-hero-3.png"
