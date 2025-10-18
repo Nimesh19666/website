@@ -2,6 +2,7 @@
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function HeroSection() {
   const containerVariants = {
@@ -94,18 +95,23 @@ export default function HeroSection() {
           variants={contentVariants}
           className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4"
         >
-          <Button
-            variant="black"
-            className="w-full text-sm font-light sm:w-auto px-8 sm:px-10 py-3 cursor-pointer"
-          >
-            Book A Call
-          </Button>
-          <Button
-            variant="primary"
-            className="w-full text-sm font-light sm:w-auto px-8 hadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] py-3 cursor-pointer"
-          >
-            Our Process
-          </Button>
+          <Link href="tel:7888128924">
+            <Button
+              variant="black"
+              className="w-auto text-sm font-light px-6 py-2 sm:px-10 sm:py-3 cursor-pointer"
+            >
+              Book A Call
+            </Button>
+          </Link>
+
+          <Link href="#process">
+            <Button
+              variant="primary"
+              className="w-auto text-sm font-light px-6 py-2 sm:px-10 sm:py-3 hadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] cursor-pointer"
+            >
+              Our Process
+            </Button>
+          </Link>
         </motion.div>
       </motion.div>
     </section>

@@ -12,7 +12,10 @@ export default function Home() {
       <HeroSection />
       <WhyChooseUs />
       <FeaturesSection />
-      <ProcessSection />
+
+      <div id="process">
+        <ProcessSection />
+      </div>
 
       <ServicesSection />
       <TestimonialsSection />

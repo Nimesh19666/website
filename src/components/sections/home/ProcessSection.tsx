@@ -12,7 +12,6 @@ const iconMap: Record<string, LucideIcon> = {
   Settings,
 };
 
-// Helper component to render each step card
 const StepCard = ({
   step,
   growClass,
@@ -22,17 +21,13 @@ const StepCard = ({
 }) => {
   const Icon = iconMap[step.iconName];
 
-  // --- NEW DOTS LOGIC ---
-  // Convert "01" to 0, "02" to 1, etc.
   const activeIndex = parseInt(step.number, 10) - 1;
-  const totalDots = 4; // We will always render 4 dots
-  // --- END NEW DOTS LOGIC ---
+  const totalDots = 4;
 
   return (
     <motion.div
       className={`bg-white p-8 shadow-[0px_5px_15px_rgba(0,0,0,0.05)] rounded-2xl overflow-hidden flex flex-col ${growClass}`}
       variants={{
-        // Use a simple fade-up for each card
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
       }}
@@ -92,7 +87,7 @@ export default function ProcessSection() {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.5, staggerChildren: 0.1 }, // Stagger cards
+      transition: { duration: 0.5, staggerChildren: 0.1 },
     },
   };
 
@@ -101,11 +96,10 @@ export default function ProcessSection() {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.5, staggerChildren: 0.1 }, // Stagger cards
+      transition: { duration: 0.5, staggerChildren: 0.1 },
     },
   };
 
-  // A new container to stagger the two columns
   const containerVariants = {
     hidden: {},
     visible: {

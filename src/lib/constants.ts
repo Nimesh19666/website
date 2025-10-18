@@ -326,7 +326,7 @@ export const faqSectionData = {
   ],
   contact: {
     text: "Feel free to mail us for any enquiries :",
-    email: "noupod@gmail.com",
+    email: "info@nuopodcom",
   },
 };
 

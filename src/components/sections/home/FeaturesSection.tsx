@@ -12,6 +12,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Badge from "../../ui/Badge";
 import Button from "../../ui/Button";
+import Link from "next/link";
 
 const iconMap: Record<string, LucideIcon> = {
   Cpu,
@@ -122,7 +123,7 @@ export default function FeaturesSection() {
                     </div>
 
                     {card.imageUrl && index === 3 && (
-                      <div className="relative w-full sm:w-2/4 h-48 sm:h-auto">
+                      <div className="relative w-full sm:w-2/4 h-48 sm:Nauto">
                         <Image
                           src={card.imageUrl}
                           alt={card.title}
@@ -143,8 +144,12 @@ export default function FeaturesSection() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
             >
-              <Button variant="black">Get Started</Button>
-              <Button variant="primary">See Our Services</Button>
+              <Link href="/services">
+                <Button variant="black">Get Started</Button>
+              </Link>
+              <Link href="/services">
+                <Button variant="primary">See Our Services</Button>
+              </Link>
             </motion.div>
           </div>
         </div>

@@ -2,7 +2,7 @@
 
 import { whyChooseUsData } from "@/lib/constants";
 import { motion, type Variants } from "framer-motion";
-import Badge from "../../ui/Badge"; // Assuming this path is correct
+import Badge from "../../ui/Badge";
 import Image from "next/image";
 
 export default function WhyChooseUs() {
@@ -76,8 +76,8 @@ export default function WhyChooseUs() {
             <motion.div
               className="bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] p-8 rounded-2xl md:col-span-2"
               variants={itemVariants}
-              whileHover={{ scale: 1, y: -5 }} // <-- ANIMATION ADDED
-              transition={{ duration: 0.5, ease: "easeInOut" }} // <-- SMOOTHER TRANSITION
+              whileHover={{ scale: 1, y: -5 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
             >
               <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
                 <Image
@@ -96,8 +96,8 @@ export default function WhyChooseUs() {
             <motion.div
               className="bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] p-8 rounded-2xl md:col-span-2"
               variants={itemVariants}
-              whileHover={{ scale: 1, y: -5 }} // <-- ANIMATION ADDED
-              transition={{ duration: 0.5, ease: "easeInOut" }} // <-- SMOOTHER TRANSITION
+              whileHover={{ scale: 1, y: -5 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
             >
               <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
                 <Image
@@ -116,8 +116,8 @@ export default function WhyChooseUs() {
             <motion.div
               className="bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] p-8 rounded-2xl md:col-span-2"
               variants={itemVariants}
-              whileHover={{ scale: 1, y: -5 }} // <-- ANIMATION ADDED
-              transition={{ duration: 0.5, ease: "easeInOut" }} // <-- SMOOTHER TRANSITION
+              whileHover={{ scale: 1, y: -5 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
             >
               <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
                 <Image

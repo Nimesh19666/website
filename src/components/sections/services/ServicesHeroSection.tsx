@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { servicesHeroData } from "@/lib/constants";
 import Button from "@/components/ui/Button";
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 export default function ServicesHeroSection() {
   const { imageUrl } = servicesHeroData;
@@ -15,13 +16,68 @@ export default function ServicesHeroSection() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
+    null
+  );
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    if (formData.subject === "") {
+      setSubmitStatus("error");
+      setIsSubmitting(false);
+      console.error("Subject is not selected");
+      return;
+    }
+
+    const data = {
+      ...formData,
+      access_key: "2f44eb7c-c66a-4fd6-aab8-ed9c815d12d0",
+      subject: `New Submission: ${formData.subject}`,
+      from_name: `Nuopod Services - ${formData.fullName}`,
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        console.log("Form submitted successfully:", result);
+        setSubmitStatus("success");
+        setFormData({
+          fullName: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        console.error("Error submitting form:", result.message);
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     setFormData({
       ...formData,
@@ -111,7 +167,7 @@ export default function ServicesHeroSection() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-white/50 backdrop-blur-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10 transition-all text-gray-600 placeholder:text-gray-400"
-                  placeholder="noupod@gmail.com"
+                  placeholder="info@nuopod.com"
                 />
               </div>
 
@@ -122,16 +178,34 @@ export default function ServicesHeroSection() {
                 >
                   Subject Of Interest
                 </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-white/50 backdrop-blur-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10 transition-all text-gray-600 placeholder:text-gray-400"
-                  placeholder="Dropdown of all services"
-                />
+                <div className="relative">
+                  <select
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 bg-white/50 backdrop-blur-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10 transition-all text-gray-600 appearance-none pr-12"
+                  >
+                    <option value="" disabled>
+                      Select a service...
+                    </option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="App Development">App Development</option>
+                    <option value="AI & Automation Solutions">
+                      AI & Automation Solutions
+                    </option>
+                    <option value="Custom Software Development">
+                      Custom Software Development
+                    </option>
+                    <option value="Cloud & DevOps Services">
+                      Cloud & DevOps Services
+                    </option>
+                    <option value="Data & Analytics">Data & Analytics</option>
+                    <option value="All of the above">All of the above</option>
+                  </select>
+                  <ChevronDown className="absolute top-1/2 -translate-y-1/2 right-4 h-5 w-5 text-gray-500 pointer-events-none" />
+                </div>
               </div>
 
               <div>
@@ -154,8 +228,19 @@ export default function ServicesHeroSection() {
               </div>
 
               <Button variant="black" className="w-full py-4" type="submit">
-                Send Your Message
+                {isSubmitting ? "Sending..." : "Send Your Message"}
               </Button>
+
+              {submitStatus === "success" && (
+                <p className="text-sm text-green-600">
+                  Message sent successfully! We will get back to you soon.
+                </p>
+              )}
+              {submitStatus === "error" && (
+                <p className="text-sm text-red-600">
+                  Something went wrong. Please check all fields and try again.
+                </p>
+              )}
             </form>
           </motion.div>
         </div>
