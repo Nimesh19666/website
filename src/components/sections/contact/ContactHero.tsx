@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import { Mail, CalendarDays } from "lucide-react";
+import { Mail, CalendarDays, ChevronDown } from "lucide-react";
 
 export default function ContactHero() {
   const [formData, setFormData] = useState({
@@ -14,13 +14,68 @@ export default function ContactHero() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
+    null
+  );
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    if (formData.subject === "") {
+      setSubmitStatus("error");
+      setIsSubmitting(false);
+      console.error("Subject is not selected");
+      return;
+    }
+
+    const data = {
+      ...formData,
+      access_key: "2f44eb7c-c66a-4fd6-aab8-ed9c815d12d0",
+      subject: `New Submission: ${formData.subject}`,
+      from_name: `Nuopod Contact - ${formData.fullName}`,
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        console.log("Form submitted successfully:", result);
+        setSubmitStatus("success");
+        setFormData({
+          fullName: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        console.error("Error submitting form:", result.message);
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     setFormData({
       ...formData,
@@ -86,10 +141,10 @@ export default function ContactHero() {
                   details!
                 </p>
                 <a
-                  href="mailto:noupod@gmail.com"
+                  href="mailto:info@nuopod.com"
                   className="text-black font-[400] underline hover:text-gray-700 transition-colors"
                 >
-                  noupod@gmail.com
+                  info@nuopod.com
                 </a>
               </motion.div>
 
@@ -105,7 +160,7 @@ export default function ContactHero() {
                   for you
                 </p>
                 <a
-                  href="#"
+                  href="tel:7888128924"
                   className="text-black font-[400] underline hover:text-gray-700 transition-colors"
                 >
                   Book a call
@@ -132,7 +187,7 @@ export default function ContactHero() {
                     value={formData.fullName}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white/50 backdrop-blur-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10 transition-all text-gray-600 placeholder:text-gray-400"
+                    className="w-full px-4 py-3 bg-white/50 backdrop-blur-sm rounded-lg border border-gray-200 transition-all text-gray-400 placeholder:text-gray-400"
                     placeholder="Ikta Sollork"
                   />
                 </div>
@@ -152,7 +207,7 @@ export default function ContactHero() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-white/50 backdrop-blur-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10 transition-all text-gray-600 placeholder:text-gray-400"
-                    placeholder="noupod@gmail.com"
+                    placeholder="info@nuopod.com"
                   />
                 </div>
 
@@ -163,16 +218,35 @@ export default function ContactHero() {
                   >
                     Subject Of Interest
                   </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-white/50 backdrop-blur-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10 transition-all text-gray-600 placeholder:text-gray-400"
-                    placeholder="Regarding Project"
-                  />
+                  <div className="relative">
+                    <select
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-white/50 backdrop-blur-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10 transition-all text-gray-600 appearance-none pr-12"
+                    >
+                      <option value="" disabled>
+                        Select a service...
+                      </option>
+
+                      <option value="Web Development">Web Development</option>
+                      <option value="App Development">App Development</option>
+                      <option value="AI & Automation Solutions">
+                        AI & Automation Solutions
+                      </option>
+                      <option value="Custom Software Development">
+                        Custom Software Development
+                      </option>
+                      <option value="Cloud & DevOps Services">
+                        Cloud & DevOps Services
+                      </option>
+                      <option value="Data & Analytics">Data & Analytics</option>
+                      <option value="All of the above">All of the above</option>
+                    </select>
+                    <ChevronDown className="absolute top-1/2 -translate-y-1/2 right-4 h-5 w-5 text-gray-500 pointer-events-none" />
+                  </div>
                 </div>
 
                 <div>
@@ -189,14 +263,25 @@ export default function ContactHero() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-white/50 backdrop-blur-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10 transition-all resize-none text-gray-600 placeholder:text-gray-400"
+                    className="w-full px-4 py-3 bg-white/50 backdrop-blur-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/1To transition-all resize-none text-gray-600 placeholder:text-gray-400"
                     placeholder="Give us more info.."
                   />
                 </div>
 
                 <Button variant="black" className="w-full py-4" type="submit">
-                  Send Your Message
+                  {isSubmitting ? "Sending..." : "Send Your Message"}
                 </Button>
+
+                {submitStatus === "success" && (
+                  <p className="text-sm text-green-600">
+                    Message sent successfully! We will get back to you soon.
+                  </p>
+                )}
+                {submitStatus === "error" && (
+                  <p className="text-sm text-red-600">
+                    Something went wrong. Please check all fields and try again.
+                  </p>
+                )}
               </form>
             </motion.div>
           </motion.div>
