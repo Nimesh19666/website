@@ -32,7 +32,6 @@ export default function TeamSection() {
     <section className="bg-[#f8f8f8] py-16 sm:py-24 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
-          {/* Section Header */}
           <motion.div
             className="text-center mb-12 sm:mb-16"
             variants={containerVariants}
@@ -59,7 +58,6 @@ export default function TeamSection() {
             </motion.p>
           </motion.div>
 
-          {/* Team Carousel */}
           <TeamCarousel members={members} />
         </div>
       </div>

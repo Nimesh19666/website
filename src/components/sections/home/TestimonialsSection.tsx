@@ -96,18 +96,18 @@ export default function TestimonialsSection() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
-            className="text-center mb-12 sm:mb-16"
+            className="text-center flex gap-4 mb-12 flex-col items-center"
             variants={itemVariantsUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
           >
-            <div className="inline-block mb-4">
+            <div className="inline-block">
               <Badge className="w-full text-[14px] sm:w-auto px-4 py-1 flex items-center !shadow-[inset_0px_3px_0px_#fff] rounded-[30px]">
                 {badge}
               </Badge>
             </div>
-            <h2 className="font-heading text-3xl font-[satoshi] font-medium sm:text-4xl md:text-5xl mb-4 bg-[linear-gradient(0deg,rgb(255,255,255)_0%,rgb(0,0,0)_190%)]  bg-clip-text text-transparent">
+            <h2 className="font-heading text-3xl font-[satoshi] font-medium sm:text-4xl md:text-5xl py-2 bg-[linear-gradient(0deg,rgb(255,255,255)_60%,rgb(0,0,0)_100%)]  bg-clip-text text-transparent">
               {title}
             </h2>
             <p className="text-white text-sm sm:text-lg max-w-2xl mx-auto">
@@ -182,7 +182,7 @@ export default function TestimonialsSection() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
@@ -198,7 +198,7 @@ export default function TestimonialsSection() {
                   <p className="text-white text-sm">{stat.label}</p>
                 </motion.div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

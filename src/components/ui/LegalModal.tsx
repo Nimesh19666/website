@@ -3,14 +3,25 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { useEffect } from "react";
-import { termsAndConditionsData } from "@/lib/constants";
 
-interface TermsModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+interface Section {
+  title: string;
+  content: string;
 }
 
-export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
+interface LegalModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
+  sections: Section[];
+}
+
+export default function LegalModal({
+  isOpen,
+  onClose,
+  title,
+  sections,
+}: LegalModalProps) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -29,8 +40,6 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
   }, [isOpen, onClose]);
-
-  const { title, sections } = termsAndConditionsData;
 
   return (
     <AnimatePresence>
@@ -64,7 +73,7 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
               </div>
 
               <div
-                className="flex-1 overflow-y-auto px-6 py-6 "
+                className="flex-1 overflow-y-auto px-6 py-6"
                 data-lenis-prevent
               >
                 {sections.map((section, index) => (
@@ -72,7 +81,7 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
                     <h3 className="text-lg font-semibold text-black mb-2">
                       {section.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed whitespace-pre-line">
                       {section.content}
                     </p>
                   </div>

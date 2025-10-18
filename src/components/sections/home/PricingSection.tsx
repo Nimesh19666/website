@@ -36,7 +36,6 @@ export default function PricingSection() {
     <section className="bg-[#f8f8f8] py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16">
             <div className="inline-block mb-4">
               <Badge className="w-full text-[14px] sm:w-auto px-4 py-1 flex items-center !shadow-[inset_0px_3px_0px_#fff] rounded-[30px]">
@@ -78,7 +77,6 @@ export default function PricingSection() {
             </div>
           </div>
 
-          {/* Pricing Cards */}
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start mb-12"
             variants={containerVariants}

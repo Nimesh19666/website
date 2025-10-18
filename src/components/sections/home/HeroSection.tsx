@@ -73,9 +73,9 @@ export default function HeroSection() {
           variants={contentVariants}
           className="flex items-center justify-center gap-3 sm:gap-6 mb-6 sm:mb-8"
         >
-          <h1 className="text-3xl leading-tight sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-[linear-gradient(0deg,rgb(0,0,0)_0%,rgb(255,255,255)_170%)] bg-clip-text text-transparent drop-shadow-lg px-4 font-[satoshi]">
+          <h1 className="text-3xl leading-tight sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-[linear-gradient(0deg,rgb(0,0,0)_70%,rgb(255,255,255)_100%)] bg-clip-text text-transparent drop-shadow-lg px-4 font-[satoshi]">
             Intelligent Technology for <br></br>
-            <span className=" bg-[linear-gradient(0deg,rgb(8,102,255)_0%,rgb(255,255,255)_170%)] bg-clip-text text-transparent">
+            <span className=" bg-[linear-gradient(0deg,rgb(8,102,255)_70%,rgb(255,255,255)_100%)] bg-clip-text text-transparent">
               Ambitious Brands
             </span>{" "}
           </h1>

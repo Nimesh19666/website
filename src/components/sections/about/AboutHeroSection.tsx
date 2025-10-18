@@ -75,7 +75,7 @@ export default function AboutHeroSection() {
         animate="visible"
       >
         <motion.div variants={itemVariants} className="inline-block mb-6">
-          <Badge className=" !text-black !shadow-[inset_0px_3px_0px_#fff] border border-white/30 px-4 py-1 rounded-full">
+          <Badge className=" !text-black text-xs !shadow-[inset_0px_3px_0px_#fff] border border-white/30 px-2 py-1 rounded-full">
             About Us
           </Badge>
         </motion.div>

@@ -3,12 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaInstagram, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import TermsModal from "../ui/TermsModal";
+import { FaInstagram, FaFacebookF, FaYoutube } from "react-icons/fa";
+
+import LegalModal from "../ui/LegalModal";
+import { termsAndConditionsData, privacyPolicyData } from "@/lib/constants";
+import Button from "../ui/Button";
 
 export default function Footer() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeModal, setActiveModal] = useState<"terms" | "privacy" | null>(
+    null
+  );
 
   return (
     <>
@@ -30,9 +34,12 @@ export default function Footer() {
               Ready to elevate your business?
             </h2>
             <Link href="/contact">
-              <button className="bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-neutral-800 transition-colors flex-shrink-0">
-                Contact us
-              </button>
+              <Button
+                variant="black"
+                className={`text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 transition-colors duration-300 border-2 border-transparent`}
+              >
+                Contact Us
+              </Button>
             </Link>
           </div>
 
@@ -70,10 +77,10 @@ export default function Footer() {
                     Services
                   </Link>
                   <Link
-                    href="#theprocess"
+                    href="/faq"
                     className="text-neutral-700 hover:text-black transition"
                   >
-                    The Process
+                    FAQ
                   </Link>
                   <Link
                     href="#news"
@@ -90,10 +97,10 @@ export default function Footer() {
                   <p>
                     Have a project in mind? <br />
                     <a
-                      href="mailto:hello@nuopod.com"
+                      href="mailto:info@nuopod.com"
                       className="font-medium text-black hover:text-neutral-700 underline transition"
                     >
-                      hello@nuopod.com
+                      info@nuopod.com
                     </a>
                   </p>
                   <p>Mumbai, Maharashtra, India</p>
@@ -106,49 +113,69 @@ export default function Footer() {
                 <span>
                   Nuopod © {new Date().getFullYear()}. Designed by Nuopod.
                 </span>
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="hover:text-black underline transition"
-                >
-                  Terms & Conditions
-                </button>
               </div>
+
               <div className="flex items-center gap-4 text-neutral-700">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/nuopod.tech/"
                   className="hover:text-black transition-colors"
                   aria-label="Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <FaInstagram size={20} />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/61581761844790"
                   className="hover:text-black transition-colors"
                   aria-label="Facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <FaFacebookF size={20} />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.youtube.com/channel/UCDqQdxqGdwwF0-Y6j8pLhzQ"
                   className="hover:text-black transition-colors"
-                  aria-label="LinkedIn"
+                  aria-label="YouTube"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <FaLinkedinIn size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="hover:text-black transition-colors"
-                  aria-label="X Twitter"
-                >
-                  <FaXTwitter size={20} />
+                  <FaYoutube size={20} />
                 </a>
               </div>
+            </div>
+            <div className="flex items-center gap-x-2 justify-center mt-4 text-sm">
+              <button
+                onClick={() => setActiveModal("terms")}
+                className="hover:text-black underline transition cursor-pointer"
+              >
+                Terms of Service
+              </button>
+              <span className="text-neutral-400">|</span>
+              <button
+                onClick={() => setActiveModal("privacy")}
+                className="hover:text-black underline transition cursor-pointer"
+              >
+                Privacy Policy
+              </button>
             </div>
           </div>
         </div>
       </footer>
 
-      <TermsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <LegalModal
+        isOpen={activeModal === "terms"}
+        onClose={() => setActiveModal(null)}
+        title={termsAndConditionsData.title}
+        sections={termsAndConditionsData.sections}
+      />
+      <LegalModal
+        isOpen={activeModal === "privacy"}
+        onClose={() => setActiveModal(null)}
+        title={privacyPolicyData.title}
+        sections={privacyPolicyData.sections}
+      />
     </>
   );
 }

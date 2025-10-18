@@ -135,7 +135,6 @@ export default function TeamCarousel({ members }: TeamCarouselProps) {
         <div className="absolute top-0 right-0 bottom-0 w-24 sm:w-12 bg-gradient-to-l from-[#f8f8f8] to-transparent z-10 pointer-events-none"></div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Mobile: Show only first card */}
           <div className="md:hidden relative h-[420px]">
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
@@ -156,7 +155,6 @@ export default function TeamCarousel({ members }: TeamCarouselProps) {
             </AnimatePresence>
           </div>
 
-          {/* Desktop: Show all 3 cards */}
           <div className="hidden md:contents">
             {visibleIndices.map((memberIndex, position) => (
               <div key={position} className="relative h-[420px]">

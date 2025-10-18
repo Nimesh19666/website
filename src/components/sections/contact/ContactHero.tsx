@@ -52,7 +52,6 @@ export default function ContactHero() {
     <section className="bg-[#f8f8f8] py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
-          {/* Header */}
           <div className="text-center mb-12 sm:mb-16">
             <div className="inline-block mb-4">
               <Badge className="w-full text-[14px] sm:w-auto px-4 py-1 flex items-center !shadow-[inset_0px_3px_0px_#fff] rounded-[30px]">
@@ -79,7 +78,7 @@ export default function ContactHero() {
                 className="bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] rounded-2xl p-8"
                 variants={itemVariants}
               >
-                <div className="w-14 h-14 bg-[linear-gradient(180deg,rgb(0,0,0)_0%,rgb(255,255,255)_170%)] rounded-2xl mb-6 flex items-center justify-center">
+                <div className="w-14 h-14 bg-black rounded-2xl mb-6 flex items-center justify-center">
                   <Mail className="h-7 w-7 text-white" />
                 </div>
                 <p className="text-gray-700 text-sm mb-4 leading-relaxed">
@@ -98,7 +97,7 @@ export default function ContactHero() {
                 className="bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] rounded-2xl p-8"
                 variants={itemVariants}
               >
-                <div className="w-14 h-14 bg-[linear-gradient(180deg,rgb(0,0,0)_0%,rgb(255,255,255)_170%)] rounded-2xl mb-6 flex items-center justify-center">
+                <div className="w-14 h-14 bg-black rounded-2xl mb-6 flex items-center justify-center">
                   <CalendarDays className="h-7 w-7 text-white" />
                 </div>
                 <p className="text-gray-700 text-sm mb-4 leading-relaxed">

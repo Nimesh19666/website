@@ -1,31 +1,9 @@
 "use client";
 
 import { whyChooseUsData } from "@/lib/constants";
-import { LineChart, TrendingUp, RefreshCw, LucideIcon } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
-import Badge from "../../ui/Badge";
+import Badge from "../../ui/Badge"; // Assuming this path is correct
 import Image from "next/image";
-
-const iconMap: Record<string, LucideIcon> = {
-  LineChart,
-  TrendingUp,
-  RefreshCw,
-};
-
-const UIPill = ({
-  className = "",
-  children,
-}: {
-  className?: string;
-  children?: React.ReactNode;
-}) => (
-  <div
-    className={`bg-white/50 backdrop-blur-sm rounded-lg shadow-[0_2px_4px_rgba(0,0,0,0.05)] ${className}`}
-  >
-    {children}
-  </div>
-);
-// ----
 
 export default function WhyChooseUs() {
   const { badge, title, description, benefits, features } = whyChooseUsData;
@@ -79,14 +57,14 @@ export default function WhyChooseUs() {
             viewport={{ once: true, amount: 0.1 }}
           >
             <motion.div className="md:col-span-6" variants={itemVariants}>
-              <div className="text-center mb-8">
+              <div className="text-center gap-4 flex flex-col items-center">
                 {" "}
-                <div className="inline-block mb-4">
+                <div className="inline-block">
                   <Badge className="w-full text-[14px] sm:w-auto px-4 py-1 flex items-center !shadow-[inset_0px_3px_0px_#fff] rounded-[30px]">
                     {badge}
                   </Badge>
                 </div>
-                <h2 className="font-heading text-3xl font-[satoshi] font-medium sm:text-4xl md:text-5xl mb-4 bg-[linear-gradient(0deg,rgb(255,255,255)_0%,rgb(0,0,0)_190%)] bg-clip-text text-transparent">
+                <h2 className="font-heading text-3xl font-[satoshi] font-medium py-2 sm:text-4xl md:text-5xl  bg-[linear-gradient(0deg,rgb(255,255,255)_60%,rgb(0,0,0)_100%)] bg-clip-text text-transparent">
                   {title}
                 </h2>
                 <p className="text-white text-sm sm:text-lg max-w-2xl mx-auto">
@@ -98,6 +76,8 @@ export default function WhyChooseUs() {
             <motion.div
               className="bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] p-8 rounded-2xl md:col-span-2"
               variants={itemVariants}
+              whileHover={{ scale: 1, y: -5 }} // <-- ANIMATION ADDED
+              transition={{ duration: 0.5, ease: "easeInOut" }} // <-- SMOOTHER TRANSITION
             >
               <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
                 <Image
@@ -116,6 +96,8 @@ export default function WhyChooseUs() {
             <motion.div
               className="bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] p-8 rounded-2xl md:col-span-2"
               variants={itemVariants}
+              whileHover={{ scale: 1, y: -5 }} // <-- ANIMATION ADDED
+              transition={{ duration: 0.5, ease: "easeInOut" }} // <-- SMOOTHER TRANSITION
             >
               <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
                 <Image
@@ -134,6 +116,8 @@ export default function WhyChooseUs() {
             <motion.div
               className="bg-[#f8f8f8] shadow-[inset_0px_3px_0px_#fff,0px_5px_5px_rgba(0,0,0,0.1)] p-8 rounded-2xl md:col-span-2"
               variants={itemVariants}
+              whileHover={{ scale: 1, y: -5 }} // <-- ANIMATION ADDED
+              transition={{ duration: 0.5, ease: "easeInOut" }} // <-- SMOOTHER TRANSITION
             >
               <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
                 <Image

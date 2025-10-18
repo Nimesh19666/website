@@ -52,14 +52,14 @@ export default function JourneySection() {
           <div className="container mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 md:mb-16">
               <div className="inline-block mb-4">
-                <Badge className="!bg-white !text-black !shadow-[inset_0px_3px_0px_#fff] border border-white/30 px-5 py-2 rounded-full">
+                <Badge className="!bg-white !text-black text-xs !shadow-[inset_0px_3px_0px_#fff] border border-white/30 px-2 py-1 rounded-full">
                   {badge}
                 </Badge>
               </div>
-              <h2 className="text-4xl sm:text-5xl font-light font-[satoshi]">
+              <h2 className="text-3xl sm:text-5xl font-light font-[satoshi]">
                 {title}
               </h2>
-              <p className="text-neutral-400 mt-4 max-w-xl mx-auto">
+              <p className="text-sm sm:text-base text-neutral-400 mt-4 max-w-xl mx-auto">
                 {subtitle}
               </p>
             </div>
@@ -78,7 +78,7 @@ export default function JourneySection() {
                   return (
                     <div key={event.year} className="relative text-center">
                       <motion.span
-                        className="text-5xl md:text-7xl font-light font-[satoshi] block mb-8"
+                        className="text-4xl md:text-7xl font-light font-[satoshi] block mb-8"
                         animate={{
                           color: isPassed || isActive ? "#3b82f6" : "#6b7280",
                           scale: isActive ? 1.05 : 1,
@@ -112,7 +112,7 @@ export default function JourneySection() {
               <AnimatePresence mode="wait">
                 <motion.p
                   key={activeIndex}
-                  className="text-neutral-300 text-lg"
+                  className="text-neutral-300 text-base md:text-lg"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}

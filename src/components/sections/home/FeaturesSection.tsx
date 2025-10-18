@@ -61,13 +61,13 @@ export default function FeaturesSection() {
       {" "}
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-block mb-4">
+          <div className="text-center flex gap-4 mb-4 flex-col items-center">
+            <div className="inline-block">
               <Badge className="w-full text-[14px] sm:w-auto px-4 py-1 flex items-center !shadow-[inset_0px_3px_0px_#fff] rounded-[30px]">
                 {badge}
               </Badge>
             </div>
-            <h2 className="font-heading font-[satoshi] text-4xl font-medium sm:text-4xl md:text-5xl mb-4 bg-[linear-gradient(0deg,rgb(0,0,0)_0%,rgb(255,255,255)_170%)] bg-clip-text text-transparent">
+            <h2 className="font-heading font-[satoshi] text-4xl py-2 font-medium sm:text-4xl md:text-5xl bg-[linear-gradient(0deg,rgb(0,0,0)_50%,rgb(255,255,255)_100%)] bg-clip-text text-transparent">
               {title}
             </h2>
             <p className="text-gray-600 text-sm sm:text-lg max-w-2xl mx-auto">
@@ -110,7 +110,7 @@ export default function FeaturesSection() {
                     )}
 
                     <div className="p-8 flex-1">
-                      <div className="w-16 h-16 bg-[linear-gradient(180deg,rgb(0,0,0)_0%,rgb(255,255,255)_170%)] rounded-xl flex items-center justify-center mb-4">
+                      <div className="w-16 h-16 bg-black rounded-xl flex items-center justify-center mb-4">
                         <Icon className="w-6 h-6 text-white" />
                       </div>
                       <h3 className="text-xl font-[satoshi] font-medium text-black mb-3">

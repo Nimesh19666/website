@@ -17,7 +17,7 @@ export default function ServicesGrid() {
       data-header-theme="dark"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Badge className="!bg-white/10 !text-white w-max !shadow-none border border-white/30 px-5 py-2 rounded-full mb-6">
+        <Badge className="!text-black text-xs w-max mb-4 !shadow-[inset_0px_3px_0px_#fff] border border-white/30 px-2 py-1 rounded-full">
           {badge}
         </Badge>
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light font-[satoshi] mb-12 lg:pr-72">

@@ -96,7 +96,7 @@ export default function Header() {
             {[
               { href: "/about", text: "About Us" },
               { href: "/services", text: "Services" },
-              { href: "#theprocess", text: "The Process" },
+              { href: "/faq", text: "FAQ" },
               { href: "#news", text: "News" },
             ].map((link) => (
               <MotionLink
@@ -229,7 +229,7 @@ export default function Header() {
                   Services
                 </Link>
                 <Link
-                  href="#theprocess"
+                  href="/faq"
                   onClick={() => setIsMenuOpen(false)}
                   className={`text-base font-[400] transition-colors duration-300 ${
                     isDarkTheme
@@ -237,7 +237,7 @@ export default function Header() {
                       : "text-black hover:text-gray-600"
                   }`}
                 >
-                  The Process
+                  FAQ
                 </Link>
                 <Link
                   href="#news"
