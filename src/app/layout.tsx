@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -126,13 +127,30 @@ const satoshi = localFont({
   variable: "--font-satoshi",
 });
 
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Nuopod", // '%s' will be replaced by specific page titles
+    default: "Nuopod | End-to-End Technology Partner", // This is the title for your homepage
+  },
+  description:
+    "More than an agency, we're your growth engine. Your single, unified partner for all digital needs, from AI automation to web development.",
+  openGraph: {
+    title: "Nuopod | End-to-End Technology Partner",
+    description: "More than an agency, we're your growth engine.",
+    url: "https://nuopod.com",
+    siteName: "Nuopod",
+    locale: "en_US",
+    type: "website",
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="font-[poppins]">
+    <html lang="en" className={`${poppins.variable} ${satoshi.variable}`}>
       <body>
         <SmoothScroll>
           <Header />

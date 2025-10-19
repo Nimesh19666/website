@@ -8,19 +8,19 @@ export const whyChooseUsData = {
       iconName: "LineChart" as const,
       title: "Your End-to-End Technology Partner",
       description: "Your single, unified partner for all digital needs.",
-      imageUrl: "/images/home/home-hero1.jpg", 
+      imageUrl: "/images/home/home-hero1.png", 
     },
     {
       iconName: "TrendingUp" as const,
       title: "Intelligent Automation at the Core",
       description: "We build smart AI systems that power growth.",
-      imageUrl: "/images/home/home-hero2.jpg", 
+      imageUrl: "/images/home/home-hero2.png", 
     },
     {
       iconName: "RefreshCw" as const,
       title: "Focused Purely on Your Growth",
       description: "Your business growth is our most important metric.",
-      imageUrl: "/images/home/home-hero3.jpg", 
+      imageUrl: "/images/home/home-hero3.png", 
     },
   ],
   features: [
@@ -41,7 +41,7 @@ export const featuresSectionData = {
       description:
         "We establish your complete digital presence, from a stunning website and memorable brand identity to your core infrastructure.",
       iconName: "Cpu",
-      imageUrl: "/images/home/home-pillars1.jpg", 
+      imageUrl: "/images/home/home-pillars1.png", 
     },
     {
       title: "Grow Your Audience",
@@ -60,7 +60,7 @@ export const featuresSectionData = {
       description:
         "We captivate your market and define your brand identity with AI-powered video, motion graphics, and advanced creative work.",
       iconName: "MessageSquareHeart",
-      imageUrl: "/images/home/home-pillars2.jpg", 
+      imageUrl: "/images/home/home-pillars2.png", 
     },
   ],
 };
@@ -76,35 +76,35 @@ export const servicesSectionData = {
       description:
         "We build fast, responsive, and secure websites that deliver exceptional user experiences.",
       iconName: "BarChartBig",
-      imageUrl: "/images/home/home-service1.jpg", 
+      imageUrl: "/images/home/home-service1.png", 
     },
     {
       title: "App Development",
       description:
         "We design and develop intuitive, high-performance mobile apps for both iOS and Android.",
       iconName: "PenSquare",
-      imageUrl: "/images/home/home-service2.jpg", 
+      imageUrl: "/images/home/home-service2.png", 
     },
     {
       title: "AI & Automation Solutions",
       description:
         "We deploy smart AI agents and automation to streamline your operations and boost sales.",
       iconName: "MessageSquareHeart",
-      imageUrl: "/images/home/home-service3.jpg", 
+      imageUrl: "/images/home/home-service3.png", 
     },
     {
       title: "Custom Software Development",
       description:
         "We engineer bespoke software solutions tailored precisely to solve your business challenges.",
       iconName: "Workflow",
-      imageUrl: "/images/home/home-service4.jpg",
+      imageUrl: "/images/home/home-service4.png",
     },
     {
       title: "Cloud & DevOps Services",
       description:
         "We manage your cloud infrastructure, ensuring scalability, reliability, and peak performance.",
       iconName: "BarChartBig",
-      imageUrl: "/images/home/home-service5.jpg", 
+      imageUrl: "/images/home/home-service5.png", 
     },
     {
       title: "Data & Analytics",
